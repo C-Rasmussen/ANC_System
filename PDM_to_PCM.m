@@ -1,9 +1,13 @@
 fs_pdm = 3.072e6;       % PDM sample rate (3.072 MHz)
 fs_pcm = 48e3;          % Desired PCM sample rate (48 kHz)
 decimation_factor = fs_pdm / fs_pcm; % Decimation factor = 64
+create_sound()
 
 % Generate a random PDM signal 
-pdm_signal = randi([0, 1], 1, 1e6); % 1 million PDM samples
+%pdm_signal = randi([0, 1], 1, 1e6); % 1 million PDM samples
+fileID = fopen('pdm_audio.wav', 'rb');
+pdmSignal = fread(fileID, 'ubit1');
+%close(fileID);
 
 %order = 64, stopFs = 24kHz, passFs = 20KHz
 impulse_response = [
@@ -38,6 +42,7 @@ pcm_signal = myCIC(filtered_signal, decimation_factor, num_stages, differential_
 
 % PCM signal to 16 bits
 pcm_signal = int16(pcm_signal * (2^15));
+audiowrite('output_total.wav', pcm_signal, 48000);
 
 % Plot the original and converted signals
 % subplot(2,1,1);
@@ -100,4 +105,33 @@ function output = myCIC(input, decimate_factor, num_stages, delay)
             state(num_stages) = state(delay);
         end
     end
+end
+
+
+
+function create_sound()
+    fs = 48000; 
+    duration = 5; 
+    %f = 1; % test the plots anf funciton
+    f = 600; %went online to find a good freq
+    t = 0:1/fs:duration-1/fs;
+    audio_signal = sin(2*pi*f*t);
+    
+    pdm_bits = audio_signal > 0.5;
+    audio_data = pdm_bits * 2 - 1; % Convert 1-bit PDM to -1/+1 format
+
+    audiowrite('pdm_audio.wav', audio_data, fs);
+    fid = fopen('pdm_data.bin', 'wb');
+    fwrite(fid, pdm_bits, 'int8');
+    fclose(fid);
+    
+    
+    subplot(2, 1, 1);
+    plot(t, audio_signal);
+    title('Audio Signal');
+    
+    subplot(2, 1, 2);
+    stairs(t, audio_data);
+    title('PDM Signal');
+    ylim([-0.1 1.1]);
 end
