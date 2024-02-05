@@ -1,6 +1,8 @@
 library ieee;
 use ieee.std_logic_1164.all;
-
+--MCLK = 5.120 MHz
+--SLCK = 1.250 MHz
+--LRCLK= 19,531.25 KHz
 entity top is
 
 	port (
@@ -50,7 +52,7 @@ port(
 );
 end component pll_m_data_clk;
 
--- MCLK -> Fastest cloc -> 22.579 MHz
+
 
 signal m_clk		: std_logic;
 signal lr_clk		: std_logic;
