@@ -42,6 +42,7 @@ USE altera_mf.all;
 ENTITY fifo IS
 	PORT
 	(
+		aclr		: IN STD_LOGIC  := '0';
 		data		: IN STD_LOGIC_VECTOR (23 DOWNTO 0);
 		rdclk		: IN STD_LOGIC ;
 		rdreq		: IN STD_LOGIC ;
@@ -72,11 +73,14 @@ ARCHITECTURE SYN OF fifo IS
 		lpm_widthu		: NATURAL;
 		overflow_checking		: STRING;
 		rdsync_delaypipe		: NATURAL;
+		read_aclr_synch		: STRING;
 		underflow_checking		: STRING;
 		use_eab		: STRING;
+		write_aclr_synch		: STRING;
 		wrsync_delaypipe		: NATURAL
 	);
 	PORT (
+			aclr	: IN STD_LOGIC ;
 			data	: IN STD_LOGIC_VECTOR (23 DOWNTO 0);
 			rdclk	: IN STD_LOGIC ;
 			rdreq	: IN STD_LOGIC ;
@@ -103,11 +107,14 @@ BEGIN
 		lpm_widthu => 8,
 		overflow_checking => "ON",
 		rdsync_delaypipe => 4,
+		read_aclr_synch => "OFF",
 		underflow_checking => "ON",
 		use_eab => "ON",
+		write_aclr_synch => "ON",
 		wrsync_delaypipe => 4
 	)
 	PORT MAP (
+		aclr => aclr,
 		data => data,
 		rdclk => rdclk,
 		rdreq => rdreq,
@@ -145,7 +152,7 @@ END SYN;
 -- Retrieval info: PRIVATE: UNDERFLOW_CHECKING NUMERIC "0"
 -- Retrieval info: PRIVATE: UsedW NUMERIC "1"
 -- Retrieval info: PRIVATE: Width NUMERIC "24"
--- Retrieval info: PRIVATE: dc_aclr NUMERIC "0"
+-- Retrieval info: PRIVATE: dc_aclr NUMERIC "1"
 -- Retrieval info: PRIVATE: diff_widths NUMERIC "0"
 -- Retrieval info: PRIVATE: msb_usedw NUMERIC "0"
 -- Retrieval info: PRIVATE: output_width NUMERIC "24"
@@ -166,9 +173,12 @@ END SYN;
 -- Retrieval info: CONSTANT: LPM_WIDTHU NUMERIC "8"
 -- Retrieval info: CONSTANT: OVERFLOW_CHECKING STRING "ON"
 -- Retrieval info: CONSTANT: RDSYNC_DELAYPIPE NUMERIC "4"
+-- Retrieval info: CONSTANT: READ_ACLR_SYNCH STRING "OFF"
 -- Retrieval info: CONSTANT: UNDERFLOW_CHECKING STRING "ON"
 -- Retrieval info: CONSTANT: USE_EAB STRING "ON"
+-- Retrieval info: CONSTANT: WRITE_ACLR_SYNCH STRING "ON"
 -- Retrieval info: CONSTANT: WRSYNC_DELAYPIPE NUMERIC "4"
+-- Retrieval info: USED_PORT: aclr 0 0 0 0 INPUT GND "aclr"
 -- Retrieval info: USED_PORT: data 0 0 24 0 INPUT NODEFVAL "data[23..0]"
 -- Retrieval info: USED_PORT: q 0 0 24 0 OUTPUT NODEFVAL "q[23..0]"
 -- Retrieval info: USED_PORT: rdclk 0 0 0 0 INPUT NODEFVAL "rdclk"
@@ -177,6 +187,7 @@ END SYN;
 -- Retrieval info: USED_PORT: wrclk 0 0 0 0 INPUT NODEFVAL "wrclk"
 -- Retrieval info: USED_PORT: wrfull 0 0 0 0 OUTPUT NODEFVAL "wrfull"
 -- Retrieval info: USED_PORT: wrreq 0 0 0 0 INPUT NODEFVAL "wrreq"
+-- Retrieval info: CONNECT: @aclr 0 0 0 0 aclr 0 0 0 0
 -- Retrieval info: CONNECT: @data 0 0 24 0 data 0 0 24 0
 -- Retrieval info: CONNECT: @rdclk 0 0 0 0 rdclk 0 0 0 0
 -- Retrieval info: CONNECT: @rdreq 0 0 0 0 rdreq 0 0 0 0

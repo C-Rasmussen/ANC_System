@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use ieee.numeric_std.all;
 
-entity i2s_rx_tx is
+entity i2s_driver is
 port(
     clk : in std_logic;
 	 rst_n : in std_logic;
@@ -20,9 +20,9 @@ port(
     
     sync : out std_logic
     );
-end i2s_rx_tx;
+end i2s_driver;
 
-architecture Behavioral of i2s_rx_tx is
+architecture Behavioral of i2s_driver is
 
 signal in_frame : std_logic_vector (63 downto 0) := (others=>'0');
 signal out_frame : std_logic_vector (63 downto 0) := (others=>'0');

@@ -2,16 +2,16 @@ library ieee;
 use ieee.numeric_std.all;
 use ieee.std_logic_1164.all;
 
-entity clock_gen is
+entity i2s_clock_gen is
     port (
         clk : in std_logic;     
         rst_n : in std_logic;
         LRCLK : buffer std_logic;   -- Left-right clock stereo audio output
         SCLK : buffer std_logic    -- Clock for transmitting individual signal bits to PmodI2S
     );
-end entity clock_gen;
+end entity i2s_clock_gen;
 
-architecture behavior of clock_gen is
+architecture behavior of i2s_clock_gen is
     signal LRCLK_count : integer := 0;
     signal SCLK_count : integer := 0;
 begin

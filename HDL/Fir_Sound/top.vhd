@@ -1,3 +1,7 @@
+library ieee;
+use ieee.numeric_std.all;
+use ieee.std_logic_1164.all;
+
 entity top is
 	
 	port (
@@ -73,6 +77,7 @@ architecture behavior of top is
 	component fifo is
 	PORT
 	(
+		aclr				: in std_logic;
 		data				: in std_logic_vector (23 DOWNTO 0);
 		rdclk				: in std_logic ;
 		rdreq				: in std_logic ;
@@ -95,17 +100,14 @@ architecture behavior of top is
 	signal sclk_tx		: std_logic;
 
 	
-	signal data			: std_logic_Vector(15 downto 0);
-	signal data_real	: std_logic_vector(15 downto 0);
 	signal rst_n		: std_logic;
 	signal rst_h		: std_logic;
 	
-	signal dac_bit		: std_logic;
-	signal adc_bit		: std_logic;
-	
 	signal dac_real	: std_logic;
 	signal sync			: std_logic;
+	signal store		: std_logic;
 	signal adc_real	: std_logic;
+	signal adc_reg		: std_logic;
 	signal out_l		: signed(23 downto 0);
 	signal out_r		: signed(23 downto 0);
 	signal in_l			: signed(23 downto 0);
@@ -117,6 +119,10 @@ architecture behavior of top is
 	signal data_fifo_out : std_logic_vector(23 downto 0);
 	signal wr_full			: std_logic;
 	signal rd_empty		: std_logic;
+	signal fifo_clr		: std_logic;
+	
+	signal i2s_is_valid	: std_logic;
+
 begin
 
 	--component connections between instantiated entities
@@ -126,14 +132,14 @@ begin
 		 
 		 i2s_bclk 	=> sclk_tx,
 		 i2s_lr 		=> lr_clk_tx,
-		 i2s_din 	=> adc_real,
+		 i2s_din 	=> adc_reg,
 		 i2s_dout 	=> dac_real,
 		 
-		 out_l 		=> out_l,
+		 out_l 		=> open,
 		 out_r 		=> out_r,
 		 
-		 in_l 		=> out_l,
-		 in_r 		=> out_r,
+		 in_l 		=> signed(data_fifo_out),
+		 in_r 		=> signed(data_fifo_out),
 		 
 		 sync 		=> sync
     );
@@ -142,6 +148,7 @@ begin
 	--I2S entity reads from FIFO
 	--FIR filter writes to FIFO
 	fifo_inst : fifo port map (
+		aclr		 => fifo_clr,
 		data	 	 => data_fifo_in,
 		rdclk	 	 => m_clk,
 		rdreq	 	 => rd_req,
@@ -161,11 +168,20 @@ begin
 	
 
 	clock_gen_inst : i2s_clock_gen port map(
-		  clk 		=>  m_clk,   
+		  clk 		=> m_clk,   
 		  rst_n 		=> rst_n,
 		  LRCLK 		=> lr_clk_tx,   -- Left-right clock stereo audio output
 		  SCLK 		=> sclk_tx    -- Clock for transmitting individual signal bits to PmodI2S
 	);
+	
+	filter_inst : fir_filter port map(
+		rst_low 			=> rst_n,
+		input_flag 		=> sync,
+		output_flag 	=> store,
+		clk 				=> MAX10_CLK1_50,								--Input from top module, probably ADC_CLK50 for fastest possible filtering
+		input 			=> std_logic_vector(out_r),												--Input from I2S2 module, read in from reference microphone											--Input from error module, updated coefficients (might be better to split into 32 individual inputs)
+		output 			=> (data_fifo_in)	--Output from filtering.  To be sent to I2S2 module to be played on anti noise speaker
+		);
 
 	
 	GPIO(0) <= m_clk;
@@ -179,14 +195,49 @@ begin
 	GPIO(8) <= sclk_tx;
 	adc_real <= GPIO(9);
 	
-	process (MAX10_CLK1_50) begin
+	rst_n <= KEY(0);
+	rst_h <= not KEY(0);
 	
+	
+	--store needs to come out of fir filter saying data is valid
+	--Output of fir is always hooked up to FIFO, enable goes high to transfer data
+	write_fifo: process(MAX10_CLK1_50) begin
 		if rising_edge(MAX10_CLK1_50) then
-		
-			--Put FIFO interfacing code right here with readys and syncs to control rd/wr req
+			if rst_n = '0' then
+			else
+				if (store = '1' and wr_full = '0') then
+					wr_req <= '1';
+				else
+					wr_req <= '0';
+				end if;	
+			end if;
 		end if;
-	
 	end process;
 	
+	
+	read_fifo: process(m_clk) begin
+		if rising_edge(m_clk) then
+			if rst_n = '0' then
+				fifo_clr <= '1';
+			else
+				fifo_clr <= '0';
+				if rd_empty = '0' then
+					rd_req <= '1';
+					i2s_is_valid <= '1';
+				else
+	
+					rd_req <= '0';
+					i2s_is_valid <= '0';
+				end if;
+			end if;
+		end if;
+	end process;
+	
+	reg: process(m_clk) begin
+		if rising_edge(m_clk) then
+			adc_reg <= adc_real;
+		end if;
+	end process;
 
+	
 end architecture behavior;
