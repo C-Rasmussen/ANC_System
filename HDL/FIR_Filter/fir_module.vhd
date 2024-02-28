@@ -17,25 +17,36 @@ end entity fir_module;
 architecture behavior of fir_module is
 --define signals here
 
-signal wts : COEFF;
-signal filt_inputs : COEFF;
-signal filt_inputs_temp : COEFF;
-signal filt_accum : ACCUM;
+signal wts : WEIGHTS;					--48 bits
+signal filt_inputs : COEFF;			--48
+signal filt_inputs_temp : COEFF;		--48
+signal filt_accum : ACCUM;				--96
 
 signal state : state_type := INITIAL;
 signal count : integer := 0;
 signal input_integer : integer;
-signal temp_output : signed(47 downto 0);
-signal error : signed(23 downto 0);
-signal mu : signed(23 downto 0);
-signal updater : signed(23 downto 0);
-signal updater_temp : signed (71 downto 0);
+signal temp_output : signed(100 downto 0);  --
+signal error : signed(47 downto 0);
+signal mu : signed(47 downto 0);
+signal updater : signed(47 downto 0);
+signal updater_temp : signed (143 downto 0); --
+signal output_double : signed(95 downto 0);
+signal overflow_check : signed(47 downto 0);
 
+signal output_hold : signed(23 downto 0);
+signal error_hold : signed(23 downto 0);
+signal wts_hold : TB_VIEW;
+signal update_hold : signed(23 downto 0);
+signal filt_accum_hold : TB_VIEW;
 
 --define temp array of filter length initialized to 0
 --define accum array of filter length initialized to 0
 
 begin
+
+output_hold <= temp_output(95 downto 72);
+error_hold <= error(47 downto 24);
+update_hold <= updater(47 downto 24);
 
 process (clk) begin
 	if rst_low = '0' then
@@ -46,7 +57,7 @@ process (clk) begin
 		state <= INITIAL;
 		count <= 0;
 		temp_output <= (others => '0');
-		mu <= "000000101000111101011100";  --mu = 0.01
+		mu <= "000110011001100110011010000000000000000000000000";  --mu = 0.01
 	elsif rising_edge (clk) then
 		case state is
 			when INITIAL =>    --wait until input flag is raised to move onto shift state
@@ -56,21 +67,30 @@ process (clk) begin
 			
 			when SHIFT1 =>  --right shift temp array and set first value of temp array equivalent to latest input
 				filt_inputs_temp <= filt_inputs;
-				filt_inputs(0) <= signed(input); 
+				filt_inputs(0) <= signed(input) & "000000000000000000000000"; 
 				state <= SHIFT2;
 				
 			when SHIFT2 =>
 			
 				filt_inputs((FILT_LENGTH-1) downto 1) <= filt_inputs_temp((FILT_LENGTH - 2) downto 0);
-				state <= MULT;
+				state <= MULT1;
 				
-			when MULT =>
+			when MULT1 =>
+				output_double <= (filt_inputs(count)*wts(count)) + (filt_inputs(count)*wts(count));
+				state <= MULT2;
+				
+			when MULT2 =>
 				if count = (FILT_LENGTH - 1) then
 					count <= 0;
+					temp_output <= (others => '0');
 					state <= SUM;
 				else  
-					filt_accum(count) <= filt_inputs(count) * wts(count);
+					filt_accum(count) <= output_double;
 					count <= count + 1;
+					state <= MULT1;
+				end if;
+				if count > 1 then
+					filt_accum_hold(count - 1) <= filt_accum(count - 1)(95 downto 72);
 				end if;
 			when SUM =>
 				if count = (FILT_LENGTH - 1) then
@@ -82,7 +102,7 @@ process (clk) begin
 				end if;
 			when CALC_ERROR=>
 				if count = 0 then
-					error <= (filt_inputs(0)) - temp_output(47 downto 24)  ;
+					error <= (filt_inputs(0)) - temp_output(95 downto 48)  ;
 					count <= count + 1;
 				elsif count = 1 then
 					count <= 0;
@@ -91,14 +111,33 @@ process (clk) begin
 				end if;
 				
 			when CALC_COEFFICIENTS_1=>
-			
-				--updater_temp <= mu * error * filt_inputs(count);
-				updater <= updater_temp(71 downto 48);
+				if count > 0 then
+					wts_hold(count - 1) <= wts(count - 1)(47 downto 24);
+				end if;
+				updater <= updater_temp(143 downto 96);
 				state <= CALC_COEFFICIENTS_2;
 					
 			when CALC_COEFFICIENTS_2=>
-	
-				wts(count) <= wts(count) + updater;
+				if updater(47) /= wts(count)(47) then 
+					wts(count) <= (wts(count) + updater);
+					if count = (FILT_LENGTH - 1) then
+						count <= 0;
+						state <= INITIAL;
+					else
+						updater_temp <= mu * error * filt_inputs(count + 1);
+						count <= count + 1;
+						state <= CALC_COEFFICIENTS_1;
+					end if;
+				else
+					overflow_check <= (wts(count) + updater);
+					state <= CALC_COEFFICIENTS_3;
+				end if;
+			
+			
+			when CALC_COEFFICIENTS_3=>
+				if overflow_check(47) = wts(count)(47) then
+					wts(count) <= (wts(count) + updater);
+				end if;
 				
 				if count = (FILT_LENGTH - 1) then
 					count <= 0;
@@ -107,7 +146,7 @@ process (clk) begin
 					updater_temp <= mu * error * filt_inputs(count + 1);
 					count <= count + 1;
 					state <= CALC_COEFFICIENTS_1;
-				end if;	
+				end if;
 		end case;
 	end if;
 end process;
