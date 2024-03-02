@@ -93,17 +93,21 @@ begin
 		wait for clk_period * 10;
 		rst_low <= '1';
 		wait for clk_period * 10;
-		
-		while not endfile(text_file) loop
-			readline(text_file, text_line);
-			read(text_line, test_signal);
-			input_count <= input_count + 1;
-			input_flag <= '1';
-			input <= std_logic_vector(to_signed(test_signal, 24));
-			wait for 40 ns;
-			input_flag <= '0';
-			wait for 3000 ns;
-		end loop;
-		file_close(text_file);
+		input_flag <= '1';
+		input <= "011111111111111111111111";
+		wait for clk_period*100;
+		input <= "000000000000000000000000";
+		wait;
+--		while not endfile(text_file) loop
+--			readline(text_file, text_line);
+--			read(text_line, test_signal);
+--			input_count <= input_count + 1;
+--			input_flag <= '1';
+--			input <= std_logic_vector(to_signed(test_signal, 24));
+--			wait for 100 ns;
+--			input_flag <= '0';
+--			wait for 49900 ns;
+--		end loop;
+--		file_close(text_file);
 	end process;
 end architecture behavior;
