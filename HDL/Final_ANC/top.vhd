@@ -157,29 +157,6 @@ architecture behavior of top is
 begin
 
 	--component connections between instantiated entities
-	
-	process(clk_uart, rst_n) begin
-	
-		if rst_n = '0' then
-			count <= 0;
-			index <= 0;
-		elsif rising_edge(clk_uart) then
-			if rx_request_read = '1' then
-				if count = 3 then
-					count <= 0;
-					index <= 8;
-					data_inter <= "00001010"; --newline
-					sampled_data <= error_sig; --can be whatever (this is the sampled value)
-				else
-					count <= count + 1;
-					data_inter <= std_logic_vector(sampled_data(23 downto 23-index+1));
-					index <= index + 8;
-				end if;
-			end if;
-		end if;
-		--only outputs if KEY(1) is pressed
-	end process;
-			
 		
 --			
 --	
@@ -208,10 +185,10 @@ begin
 		 i2s_dout 	=> dac_real,
 		 
 		 out_l 		=> open,
-		 out_r 		=> out_r,
+		 out_r 		=> error_sig,
 		 
-		 in_l 		=>error_sig,--signed(data_fifo_out),
-		 in_r 		=> error_sig,--signed(data_fifo_out),
+		 in_l 		=> signed(data_fifo_out),
+		 in_r 		=> signed(data_fifo_out),
 		 
 		 sync 		=> sync
     );
@@ -227,7 +204,7 @@ begin
 		 i2s_dout 	=> open,
 		 
 		 out_l 		=> open,
-		 out_r 		=> error_sig,
+		 out_r 		=> out_r,
 		 
 		 in_l 		=> in_l_dummy,
 		 in_r 		=> in_r_dummy,
