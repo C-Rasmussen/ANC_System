@@ -1,6 +1,7 @@
 library ieee;
-use ieee.numeric_std.all;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.anc_package.all;
 
 entity top is
 	
@@ -69,7 +70,8 @@ architecture behavior of top is
 	port(
 		areset			: in std_logic  := '0';
 		inclk0			: in std_logic  := '0';
-		c0					: out std_logic 
+		c0					: out std_logic;
+		c1					: out std_logic
 	);
 	end component pll;
 	
@@ -106,6 +108,34 @@ architecture behavior of top is
 	end component fifo;
 	--fifo between i2s tx and fir
 	--fir runs on 50 Mhz, i2s_tx runs on 5.120 MHz
+	component uart_fifo IS
+	PORT
+	(
+		aclr		: IN STD_LOGIC ;
+		rdclk		: IN STD_LOGIC ;
+		wrclk		: in std_logic;
+		data		: IN STD_LOGIC_VECTOR (7 DOWNTO 0);
+		rdreq		: IN STD_LOGIC ;
+		wrreq		: IN STD_LOGIC ;
+		rdempty		: OUT STD_LOGIC ;
+		q			: OUT STD_LOGIC_VECTOR (7 DOWNTO 0)
+	);
+	END component uart_fifo;
+
+
+
+	component debouncer is
+		generic(
+			WAIT_LENGTH		: integer := 50000
+		);
+		port(
+		clk				: in std_logic;
+		button			: in std_logic;
+		rst				: in std_logic;
+		out_debounced	: out std_logic
+		
+		);
+	end component debouncer;
 
 
 
@@ -133,7 +163,7 @@ architecture behavior of top is
 	signal out_r		: signed(23 downto 0);
 	signal in_l			: signed(23 downto 0);
 	signal in_r			: signed(23 downto 0);
-	signal sampled_data : signed(23 downto 0);
+	signal sampled_data : std_logic_vector(23 downto 0);
 	
 	signal in_l_dummy			: signed(23 downto 0);
 	signal in_r_dummy			: signed(23 downto 0);
@@ -145,14 +175,26 @@ architecture behavior of top is
 	signal wr_full			: std_logic;
 	signal rd_empty		: std_logic;
 	signal fifo_clr		: std_logic;
+	signal reset			: std_logic;
 	
 	signal data_s			: std_logic; 
 	signal data_inter		: std_logic_vector(7 downto 0);
 	
 	signal i2s_is_valid	: std_logic;
-	signal count			: integer:= 0;
 	signal index			: integer:= 0;
 	signal rx_request_read : std_logic;
+	signal counter			: integer := 0;
+	signal rx_data_valid : std_logic;
+	signal uart_fifo_wr_req : std_logic;
+	signal btn_debounced : std_logic;
+	signal not_rx_data_valid : std_logic;
+	
+	type states is (IDLE, SAMPLE, STALL, FINISH);
+	signal state: 			states;
+	signal temp : std_logic_vector(7 downto 0);
+	constant ascii : unsigned(7 downto 0) := "00001010";
+	
+	constant test : std_logic_vector (23 downto 0) := "101010101010101010101010";
 
 begin
 
@@ -160,17 +202,17 @@ begin
 		
 --			
 --	
---	uart_tx_inst: uart_tx port map(
---	
---		clk				=> clk_uart,
---		rst_n			=> rst_n,
---		
---		data_in			=> data_inter,
---		data_out			=> data_s,
---		
---		rx_request_read=> rx_request_read, --connect to rd req rec FIFO
---		rx_data_valid	=> not KEY(1)	--connect to not empty
---	);
+	uart_tx_inst: uart_tx port map(
+	
+		clk				=> clk_uart,
+		rst_n				=> rst_n,
+		
+		data_in			=> data_inter,
+		data_out			=> data_s,
+		
+		rx_request_read=> rx_request_read, --connect to rd req rec FIFO
+		rx_data_valid	=> rx_data_valid
+	);
 	
 	
 	
@@ -185,13 +227,21 @@ begin
 		 i2s_dout 	=> dac_real,
 		 
 		 out_l 		=> open,
-		 out_r 		=> error_sig,
+		 out_r 		=> out_r,
 		 
 		 in_l 		=> signed(data_fifo_out),
 		 in_r 		=> signed(data_fifo_out),
 		 
 		 sync 		=> sync
     );
+	 
+	 	debouncer_inst: debouncer port map(
+		clk				=> MAX10_CLK1_50,
+		button			=> KEY(1),
+		rst				=> rst_n,
+		out_debounced	=> btn_debounced
+		
+		);
 	 
 	 
 	 i2s_driver_error: i2s_driver port map(
@@ -204,7 +254,7 @@ begin
 		 i2s_dout 	=> open,
 		 
 		 out_l 		=> open,
-		 out_r 		=> out_r,
+		 out_r 		=> error_sig,
 		 
 		 in_l 		=> in_l_dummy,
 		 in_r 		=> in_r_dummy,
@@ -231,7 +281,8 @@ begin
 	pll_inst : pll port map(
 		areset		=> rst_h,
 		inclk0		=> MAX10_CLK1_50,
-		c0				=> m_clk
+		c0				=> m_clk,
+		c1				=> clk_uart
 	);
 	
 
@@ -252,7 +303,7 @@ begin
 		output 			=> (data_fifo_in)	--Output from filtering.  To be sent to I2S2 module to be played on anti noise speaker
 		);
 
-	
+	rx_data_valid <= not not_rx_data_valid;
 	GPIO(0) <= m_clk;
 	GPIO(1) <= lr_clk_tx;
 	GPIO(2) <= sclk_tx;
@@ -278,6 +329,67 @@ begin
 	
 	--store needs to come out of fir filter saying data is valid
 	--Output of fir is always hooked up to FIFO, enable goes high to transfer data
+	
+	uart_fifo_inst : uart_fifo PORT MAP (
+		aclr	 => fifo_clr,
+		wrclk	 => MAX10_CLK1_50,
+		rdclk	 => clk_uart,
+		data	 => temp,
+		rdreq	 => rx_request_read,
+		wrreq	 => uart_fifo_wr_req,
+		rdempty	 => not_rx_data_valid,
+		q	 	 => data_inter
+	);
+	
+	fifo_clr <= (not rst_n);
+	
+	UART : process(MAX10_CLK1_50) begin
+	
+		if rising_edge(MAX10_CLK1_50) then
+			if rst_n = '0' then
+				state <= IDLE;
+				counter <= 23;
+				reset <= '0';
+				uart_fifo_wr_req <= '0';
+			else
+				case state is
+					when IDLE => 
+						if btn_debounced = '1' then
+							sampled_data <= std_logic_vector(error_sig); --should be data_fifo_in,,,just for test
+							state <= SAMPLE;
+						else
+							--temp <= "00000000";
+							state <= IDLE;
+							uart_fifo_wr_req <= '0';
+						end if;
+					when SAMPLE =>
+							uart_fifo_wr_req <= '1';
+							if counter >= 0 then
+								if sampled_data(counter) = '0' then
+									temp <= "00110000";
+								elsif sampled_data(counter) = '1' then
+									temp <= "00110001";
+								end if;
+								
+								state <= STALL;
+								counter <= counter - 1;
+							else
+								state <= FINISH;
+								temp <= "00001010"; --newline
+							end if;
+					when STALL =>
+							uart_fifo_wr_req <= '0';
+							state <= SAMPLE;
+					when FINISH =>
+						temp <= "00001101";
+						state <= IDLE;
+						counter <= 23;
+				end case;
+			end if;				
+		end if;
+	end process;
+	
+	
 	write_fifo: process(MAX10_CLK1_50) begin
 		if rising_edge(MAX10_CLK1_50) then
 			if rst_n = '0' then
@@ -295,9 +407,7 @@ begin
 	read_fifo: process(m_clk) begin
 		if rising_edge(m_clk) then
 			if rst_n = '0' then
-				fifo_clr <= '1';
 			else
-				fifo_clr <= '0';
 				if rd_empty = '0' then
 					rd_req <= '1';
 					i2s_is_valid <= '1';

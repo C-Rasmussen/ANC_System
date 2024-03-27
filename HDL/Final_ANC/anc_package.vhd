@@ -6,7 +6,7 @@ use ieee.numeric_std.all;
 
 package anc_package is
 	
-	constant FILT_LENGTH : integer := 512; --filter length 32
+	constant FILT_LENGTH : integer := 64; --filter length 32
 	
 	type TB_VIEW is array(FILT_LENGTH-1 downto 0) of signed(23 downto 0);
 	
