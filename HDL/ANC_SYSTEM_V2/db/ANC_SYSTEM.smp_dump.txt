@@ -1,0 +1,13 @@
+
+State Machine - |top|fir_module:filter_inst|state
+Name state.CALC_COEFFICIENTS_3 state.CALC_COEFFICIENTS_2 state.CALC_COEFFICIENTS_1 state.CALC_ERROR state.SUM state.MULT2 state.MULT1 state.SHIFT2 state.SHIFT1 state.INITIAL 
+state.INITIAL 0 0 0 0 0 0 0 0 0 0 
+state.SHIFT1 0 0 0 0 0 0 0 0 1 1 
+state.SHIFT2 0 0 0 0 0 0 0 1 0 1 
+state.MULT1 0 0 0 0 0 0 1 0 0 1 
+state.MULT2 0 0 0 0 0 1 0 0 0 1 
+state.SUM 0 0 0 0 1 0 0 0 0 1 
+state.CALC_ERROR 0 0 0 1 0 0 0 0 0 1 
+state.CALC_COEFFICIENTS_1 0 0 1 0 0 0 0 0 0 1 
+state.CALC_COEFFICIENTS_2 0 1 0 0 0 0 0 0 0 1 
+state.CALC_COEFFICIENTS_3 1 0 0 0 0 0 0 0 0 1 
