@@ -32,7 +32,7 @@ begin
 					SCLK_count <= SCLK_count + 1;
             end if;
 
-            if LRCLK_count = 256 then
+            if LRCLK_count = 128 then
                 LRCLK <= not LRCLK;
                 LRCLK_count <= 1;
 
