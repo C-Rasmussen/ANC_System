@@ -11,6 +11,8 @@ entity top is
 		ADC_CLK_10		: in std_logic;
 
 		KEY				: in std_logic_vector(1 downto 0);
+
+		SW				: in std_logic_vector(9 downto 0);
 		
 		LEDR				: out std_logic_vector(9 downto 0);
 		ARDUINO_IO		: inout std_logic_vector(15 downto 0);
@@ -71,7 +73,8 @@ architecture behavior of top is
 		s7 : out std_logic;
 		s8 : out std_logic;
 		s9 : out std_logic;
-		s10 : out std_logic
+		s10 : out std_logic;
+		mu	: in std_logic_vector(23 downto 0)
 		);
 	end component fir_module;
 	
@@ -140,6 +143,8 @@ architecture behavior of top is
 	signal wr_full			: std_logic;
 	signal rd_empty		: std_logic;
 	signal fifo_clr		: std_logic;
+
+	signal mu			: std_logic_vector(23 downto 0);
 	
 	signal shift_reg		: DELAY;	
 	signal data_s			: std_logic; 
@@ -181,7 +186,7 @@ begin
 --	);
 	
 	
-	
+	mu <= "00000000000000" & sw(9 downto 0);
 	
 	i2s_driver_io: i2s_driver port map(
 		 clk 			=> m_clk,
@@ -267,7 +272,8 @@ begin
 		s7 => s7,
 		s8 => s8,
 		s9 => s9,
-		s10 => s10
+		s10 => s10,
+		mu	=> mu
 		);
 
 	
