@@ -21,7 +21,8 @@ entity fir_module is
 		s7 : out std_logic;
 		s8 : out std_logic;
 		s9 : out std_logic;
-		s10 : out std_logic
+		s10 : out std_logic;
+		mu	: in std_logic_vector(23 downto 0)
 		);
 end entity fir_module;
 
@@ -38,7 +39,7 @@ signal count : integer := 0;
 signal input_integer : integer;
 signal temp_output : signed(47 downto 0);  --
 signal error : signed(23 downto 0);
-signal mu : signed(23 downto 0);
+--signal mu : signed(23 downto 0);
 signal updater : signed(23 downto 0);
 signal updater_temp : signed (71 downto 0); --
 signal output_double : signed(47 downto 0);
@@ -96,7 +97,7 @@ process (clk) begin
 		count <= 0;
 		output_flag <= '0';
 		temp_output <= (others => '0');
-		mu <= "000000000000011100110101";  --mu = 0.01
+		--mu <= "000000000010000000110101";  
 	elsif rising_edge (clk) then
 		case state is
 			when INITIAL =>    --wait until input flag is raised to move onto shift state
@@ -148,11 +149,11 @@ process (clk) begin
 			when CALC_ERROR=>
 				s7 <= '1';
 				if count = 0 then
-					--output <= std_logic_vector(not(temp_output(47 downto 24))+1);
-					output <= std_logic_vector(temp_output(47 downto 24));
+					output <= std_logic_vector(not(temp_output(47 downto 24))+1);
+					--output <= std_logic_vector(temp_output(47 downto 24));
 					output_hold <= temp_output(47 downto 24);
-					error <= error_temp;
-					--error <= filt_inputs(0) - temp_output(47 downto 24);
+					--error <= error_temp;
+					error <= filt_inputs(0) - temp_output(47 downto 24);
 					count <= count + 1;
 				elsif count = 1 then
 					count <= 0;
