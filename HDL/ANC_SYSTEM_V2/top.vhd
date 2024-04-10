@@ -74,7 +74,7 @@ architecture behavior of top is
 		s8 : out std_logic;
 		s9 : out std_logic;
 		s10 : out std_logic;
-		mu	: in std_logic_vector(23 downto 0)
+		mu	: in signed(23 downto 0)
 		);
 	end component fir_module;
 	
@@ -185,8 +185,8 @@ begin
 --		rx_data_valid	=> not KEY(1)	--connect to not empty
 --	);
 	
-	
-	mu <= "00000000000000" & sw(9 downto 0);
+	mu <= "000000000010000000110101";
+	--mu <= "00000000000000" & sw(9 downto 0);
 	
 	i2s_driver_io: i2s_driver port map(
 		 clk 			=> m_clk,
@@ -200,8 +200,8 @@ begin
 		 out_l 		=> open,
 		 out_r 		=> out_r,
 		 
-		 in_l 		=> signed(shift_reg(SHIFT_LENGTH - 1)),
-		 in_r 		=> signed(shift_reg(SHIFT_LENGTH - 1)),
+		 in_l 		=> out_r,--signed(shift_reg(SHIFT_LENGTH - 1)),
+		 in_r 		=> out_r,--signed(shift_reg(SHIFT_LENGTH - 1)),
 		 
 		 sync 		=> sync
     );
@@ -273,7 +273,7 @@ begin
 		s8 => s8,
 		s9 => s9,
 		s10 => s10,
-		mu	=> mu
+		mu	=> signed(mu)
 		);
 
 	

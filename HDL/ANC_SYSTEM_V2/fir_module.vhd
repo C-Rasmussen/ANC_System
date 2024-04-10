@@ -22,7 +22,7 @@ entity fir_module is
 		s8 : out std_logic;
 		s9 : out std_logic;
 		s10 : out std_logic;
-		mu	: in std_logic_vector(23 downto 0)
+		mu	: in signed(23 downto 0)
 		);
 end entity fir_module;
 
