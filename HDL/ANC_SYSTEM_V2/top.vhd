@@ -74,6 +74,7 @@ architecture behavior of top is
 		s8 : out std_logic;
 		s9 : out std_logic;
 		s10 : out std_logic;
+		is_busy : out std_logic;
 		mu	: in signed(23 downto 0)
 		);
 	end component fir_module;
@@ -133,10 +134,16 @@ architecture behavior of top is
 	signal in_r			: signed(23 downto 0);
 	signal sampled_data : signed(23 downto 0);
 	
+	signal wr_full_rx : std_logic;
+	signal rd_empty_rx	: std_logic;
+	signal filter_is_busy : std_logic;
+	signal rd_req_rx	: std_logic;
+	
 	signal in_l_dummy			: signed(23 downto 0);
 	signal in_r_dummy			: signed(23 downto 0);
 	
 	signal data_fifo_in 	: std_logic_vector(23 downto 0);
+	signal data_fifo_out_rx : std_logic_vector(23 downto 0);
 	signal rd_req			: std_logic;
 	signal wr_req			: std_logic;
 	signal data_fifo_out : std_logic_vector(23 downto 0);
@@ -185,8 +192,8 @@ begin
 --		rx_data_valid	=> not KEY(1)	--connect to not empty
 --	);
 	
-	mu <= "000000000010000000110101";
-	--mu <= "00000000000000" & sw(9 downto 0);
+	--mu <= "000000000010000000110101";
+	mu <= "0000000" & sw(9 downto 0) & "0000000";
 	
 	i2s_driver_io: i2s_driver port map(
 		 clk 			=> m_clk,
@@ -200,8 +207,8 @@ begin
 		 out_l 		=> open,
 		 out_r 		=> out_r,
 		 
-		 in_l 		=> out_r,--signed(shift_reg(SHIFT_LENGTH - 1)),
-		 in_r 		=> out_r,--signed(shift_reg(SHIFT_LENGTH - 1)),
+		 in_l 		=> signed(shift_reg(SHIFT_LENGTH - 1)),
+		 in_r 		=> signed(shift_reg(SHIFT_LENGTH - 1)),
 		 
 		 sync 		=> sync
     );
@@ -223,12 +230,28 @@ begin
 		 in_r 		=> in_r_dummy,
 		 
 		 sync 		=> open
+		 
     );
+	 
+	 
+	 	--I2S entity reads from FIFO
+	--FIR filter writes to FIFO
+	fifo_inst_rx : fifo port map (
+		aclr		 => fifo_clr,
+		data	 	 => std_logic_vector(out_r),
+		rdclk	 	 => MAX10_CLK1_50,
+		rdreq	 	 => rd_req_rx,
+		wrclk	 	 => m_clk,
+		wrreq	 	 => sync,
+		q	 		 => data_fifo_out_rx,
+		rdempty	 => rd_empty_rx,
+		wrfull	 => wr_full_rx
+	);
 	
 	
 	--I2S entity reads from FIFO
 	--FIR filter writes to FIFO
-	fifo_inst : fifo port map (
+	fifo_inst_tx : fifo port map (
 		aclr		 => fifo_clr,
 		data	 	 => data_fifo_in,
 		rdclk	 	 => m_clk,
@@ -257,11 +280,11 @@ begin
 	
 	filter_inst : fir_module port map(
 		rst_low 			=> rst_n,
-		input_flag 		=> sync,
+		input_flag 		=> not rd_empty_rx,
 		output_flag 	=> store,
 		clk 				=> MAX10_CLK1_50,								--Input from top module, probably ADC_CLK50 for fastest possible filtering
 		error_mic		=> std_logic_vector(error_sig),
-		input 			=> std_logic_vector(out_r),												--Input from I2S2 module, read in from reference microphone											--Input from error module, updated coefficients (might be better to split into 32 individual inputs)
+		input 			=> std_logic_vector(data_fifo_out_rx),												--Input from I2S2 module, read in from reference microphone											--Input from error module, updated coefficients (might be better to split into 32 individual inputs)
 		output 			=> data_fifo_in,	--Output from filtering.  To be sent to I2S2 module to be played on anti noise speaker
 		s1 => s1,
 		s2 => s2,
@@ -273,6 +296,7 @@ begin
 		s8 => s8,
 		s9 => s9,
 		s10 => s10,
+		is_busy => filter_is_busy,
 		mu	=> signed(mu)
 		);
 
@@ -336,12 +360,13 @@ delay : process(lr_clk_tx) begin
 				
 	
 	read_fifo: process(m_clk) begin
-		if rising_edge(m_clk) then
-			if rst_n = '0' then
+	
+		if rst_n = '0' then
 				fifo_clr <= '1';
-			else
---			elsif read_delay > 15 then
-				fifo_clr <= '0';
+		else
+			fifo_clr <= '0';
+			if rising_edge(m_clk) then
+				
 				if rd_empty = '0' then
 					rd_req <= '1';
 					i2s_is_valid <= '1';
@@ -352,6 +377,16 @@ delay : process(lr_clk_tx) begin
 				end if;
 			end if;
 		end if;
+	end process;
+	
+		read_fifo_rx: process(MAX10_CLK1_50) begin
+		if rising_edge(MAX10_CLK1_50) then
+				if rd_empty_rx = '0' and filter_is_busy = '0' then
+					rd_req_rx <= '1';	
+				else
+					rd_req_rx <= '0';
+				end if;
+			end if;
 	end process;
 	
 	reg: process(m_clk) begin

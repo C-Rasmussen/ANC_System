@@ -7,7 +7,7 @@ use ieee.numeric_std.all;
 package anc_package is
 	
 	constant FILT_LENGTH : integer := 32; --filter length 32
-	constant SHIFT_LENGTH : integer := 10;
+	constant SHIFT_LENGTH : integer := 19;
 	
 	type COEFF is array (FILT_LENGTH-1 downto 0) of signed(23 downto 0);
 	type WEIGHTS is array(FILT_LENGTH-1 downto 0) of signed(23 downto 0);

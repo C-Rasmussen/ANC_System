@@ -22,6 +22,7 @@ entity fir_module is
 		s8 : out std_logic;
 		s9 : out std_logic;
 		s10 : out std_logic;
+		is_busy : out std_logic;
 		mu	: in signed(23 downto 0)
 		);
 end entity fir_module;
@@ -39,7 +40,7 @@ signal count : integer := 0;
 signal input_integer : integer;
 signal temp_output : signed(47 downto 0);  --
 signal error : signed(23 downto 0);
---signal mu : signed(23 downto 0);
+
 signal updater : signed(23 downto 0);
 signal updater_temp : signed (71 downto 0); --
 signal output_double : signed(47 downto 0);
@@ -90,6 +91,7 @@ error_temp <= signed(error_mic);
 process (clk) begin
 	if rst_low = '0' then
 		filt_inputs <= (others => (others => '0'));
+		is_busy <= '0';
 		filt_inputs_temp <= (others => (others => '0'));
 		filt_accum <= (others => (others => '0'));
 		wts <= (others => (others => '0'));
@@ -105,6 +107,9 @@ process (clk) begin
 				s1 <= '1';
 				if input_flag = '1' then
 					state <= SHIFT1;
+					is_busy <= '1';
+				else
+					is_busy <= '0';
 				end if;
 			
 			when SHIFT1 =>  --right shift temp array and set first value of temp array equivalent to latest input
@@ -157,7 +162,7 @@ process (clk) begin
 					count <= count + 1;
 				elsif count = 1 then
 					count <= 0;
-					updater_temp <= mu * error * filt_inputs(0);
+					updater_temp <= mu * error(23 downto 0) * filt_inputs(0);
 					state <= CALC_COEFFICIENTS_1;
 				end if;
 				
@@ -173,9 +178,10 @@ process (clk) begin
 					if count = (FILT_LENGTH - 1) then
 						count <= 0;
 						output_flag <= '1';
+						is_busy <= '0';
 						state <= INITIAL;
 					else
-						updater_temp <= mu * error * filt_inputs(count + 1);
+						updater_temp <= mu * error(23 downto 0) * filt_inputs(count + 1);
 						count <= count + 1;
 						state <= CALC_COEFFICIENTS_1;
 					end if;
@@ -194,9 +200,10 @@ process (clk) begin
 				if count = (FILT_LENGTH - 1) then
 					count <= 0;
 					output_flag <= '1';
+					is_busy <= '0';
 					state <= INITIAL;
 				else
-					updater_temp <= mu * error * filt_inputs(count + 1);
+					updater_temp <= mu * error(23 downto 0) * filt_inputs(count + 1);
 					count <= count + 1;
 					state <= CALC_COEFFICIENTS_1;
 				end if;
