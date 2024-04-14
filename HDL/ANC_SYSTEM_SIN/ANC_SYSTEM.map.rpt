@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ANC_SYSTEM
-Sat Apr 13 14:50:11 2024
+Sun Apr 14 11:43:48 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -76,13 +76,13 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Apr 13 14:50:11 2024       ;
+; Analysis & Synthesis Status        ; Successful - Sun Apr 14 11:43:48 2024       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; ANC_SYSTEM                                  ;
 ; Top-level Entity Name              ; top                                         ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 7,353                                       ;
-;     Total combinational functions  ; 3,316                                       ;
+; Total logic elements               ; 7,351                                       ;
+;     Total combinational functions  ; 3,314                                       ;
 ;     Dedicated logic registers      ; 4,385                                       ;
 ; Total registers                    ; 4385                                        ;
 ; Total pins                         ; 77                                          ;
@@ -195,70 +195,67 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
+;     Processor 2            ;   0.2%      ;
 ;     Processor 3            ;   0.1%      ;
 ;     Processor 4            ;   0.1%      ;
 ;     Processor 5            ;   0.1%      ;
-;     Processor 6            ;   0.1%      ;
-;     Processor 7            ;   0.1%      ;
-;     Processor 8            ;   0.1%      ;
-;     Processors 9-16        ;   0.1%      ;
+;     Processors 6-16        ;   0.1%      ;
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                       ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                   ; Library ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------+---------+
-; top.vhd                          ; yes             ; User VHDL File               ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd                   ;         ;
-; i2s_driver.vhd                   ; yes             ; User VHDL File               ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/i2s_driver.vhd            ;         ;
-; i2s_clock_gen.vhd                ; yes             ; User VHDL File               ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/i2s_clock_gen.vhd         ;         ;
-; fir_module.vhd                   ; yes             ; User VHDL File               ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fir_module.vhd            ;         ;
-; anc_package.vhd                  ; yes             ; User VHDL File               ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/anc_package.vhd           ;         ;
-; PLL.vhd                          ; yes             ; User Wizard-Generated File   ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/PLL.vhd                   ;         ;
-; fifo.vhd                         ; yes             ; User Wizard-Generated File   ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fifo.vhd                  ;         ;
-; dcfifo.tdf                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/dcfifo.tdf                              ;         ;
-; lpm_counter.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_counter.inc                         ;         ;
-; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_add_sub.inc                         ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc                            ;         ;
-; a_graycounter.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_graycounter.inc                       ;         ;
-; a_fefifo.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_fefifo.inc                            ;         ;
-; a_gray2bin.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_gray2bin.inc                          ;         ;
-; dffpipe.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/dffpipe.inc                             ;         ;
-; alt_sync_fifo.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/alt_sync_fifo.inc                       ;         ;
-; lpm_compare.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_compare.inc                         ;         ;
-; altsyncram_fifo.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram_fifo.inc                     ;         ;
-; aglobal181.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc                          ;         ;
-; db/dcfifo_5ti1.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/dcfifo_5ti1.tdf        ;         ;
-; db/a_graycounter_jg6.tdf         ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/a_graycounter_jg6.tdf  ;         ;
-; db/a_graycounter_fub.tdf         ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/a_graycounter_fub.tdf  ;         ;
-; db/altsyncram_aa61.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/altsyncram_aa61.tdf    ;         ;
-; db/alt_synch_pipe_0ol.tdf        ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/alt_synch_pipe_0ol.tdf ;         ;
-; db/dffpipe_hd9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/dffpipe_hd9.tdf        ;         ;
-; db/alt_synch_pipe_1ol.tdf        ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/alt_synch_pipe_1ol.tdf ;         ;
-; db/dffpipe_id9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/dffpipe_id9.tdf        ;         ;
-; db/cmpr_5h5.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/cmpr_5h5.tdf           ;         ;
-; altpll.tdf                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altpll.tdf                              ;         ;
-; stratix_pll.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_pll.inc                         ;         ;
-; stratixii_pll.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratixii_pll.inc                       ;         ;
-; cycloneii_pll.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/cycloneii_pll.inc                       ;         ;
-; db/pll_altpll.v                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/pll_altpll.v           ;         ;
-; altshift_taps.tdf                ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altshift_taps.tdf                       ;         ;
-; lpm_constant.inc                 ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_constant.inc                        ;         ;
-; db/shift_taps_n0m.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/shift_taps_n0m.tdf     ;         ;
-; db/altsyncram_sfa1.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/altsyncram_sfa1.tdf    ;         ;
-; db/cntr_g5f.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/cntr_g5f.tdf           ;         ;
-; db/cmpr_grb.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/cmpr_grb.tdf           ;         ;
-; db/cntr_6lg.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/cntr_6lg.tdf           ;         ;
-; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mult.tdf                            ;         ;
-; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/multcore.inc                            ;         ;
-; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/bypassff.inc                            ;         ;
-; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altshift.inc                            ;         ;
-; db/mult_mgs.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/mult_mgs.tdf           ;         ;
-; db/mult_4hs.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/mult_4hs.tdf           ;         ;
-; db/mult_ugs.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/mult_ugs.tdf           ;         ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                       ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                   ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------------------------------+---------+
+; top.vhd                          ; yes             ; User VHDL File               ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd                   ;         ;
+; i2s_driver.vhd                   ; yes             ; User VHDL File               ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/i2s_driver.vhd            ;         ;
+; i2s_clock_gen.vhd                ; yes             ; User VHDL File               ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/i2s_clock_gen.vhd         ;         ;
+; fir_module.vhd                   ; yes             ; User VHDL File               ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fir_module.vhd            ;         ;
+; anc_package.vhd                  ; yes             ; User VHDL File               ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/anc_package.vhd           ;         ;
+; PLL.vhd                          ; yes             ; User Wizard-Generated File   ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/PLL.vhd                   ;         ;
+; fifo.vhd                         ; yes             ; User Wizard-Generated File   ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fifo.vhd                  ;         ;
+; dcfifo.tdf                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/dcfifo.tdf                                              ;         ;
+; lpm_counter.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_counter.inc                                         ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_add_sub.inc                                         ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc                                            ;         ;
+; a_graycounter.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_graycounter.inc                                       ;         ;
+; a_fefifo.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_fefifo.inc                                            ;         ;
+; a_gray2bin.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_gray2bin.inc                                          ;         ;
+; dffpipe.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/dffpipe.inc                                             ;         ;
+; alt_sync_fifo.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/alt_sync_fifo.inc                                       ;         ;
+; lpm_compare.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_compare.inc                                         ;         ;
+; altsyncram_fifo.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram_fifo.inc                                     ;         ;
+; aglobal181.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc                                          ;         ;
+; db/dcfifo_5ti1.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/dcfifo_5ti1.tdf        ;         ;
+; db/a_graycounter_jg6.tdf         ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/a_graycounter_jg6.tdf  ;         ;
+; db/a_graycounter_fub.tdf         ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/a_graycounter_fub.tdf  ;         ;
+; db/altsyncram_aa61.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/altsyncram_aa61.tdf    ;         ;
+; db/alt_synch_pipe_0ol.tdf        ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/alt_synch_pipe_0ol.tdf ;         ;
+; db/dffpipe_hd9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/dffpipe_hd9.tdf        ;         ;
+; db/alt_synch_pipe_1ol.tdf        ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/alt_synch_pipe_1ol.tdf ;         ;
+; db/dffpipe_id9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/dffpipe_id9.tdf        ;         ;
+; db/cmpr_5h5.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/cmpr_5h5.tdf           ;         ;
+; altpll.tdf                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altpll.tdf                                              ;         ;
+; stratix_pll.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_pll.inc                                         ;         ;
+; stratixii_pll.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratixii_pll.inc                                       ;         ;
+; cycloneii_pll.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/cycloneii_pll.inc                                       ;         ;
+; db/pll_altpll.v                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/pll_altpll.v           ;         ;
+; altshift_taps.tdf                ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altshift_taps.tdf                                       ;         ;
+; lpm_constant.inc                 ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_constant.inc                                        ;         ;
+; db/shift_taps_n0m.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/shift_taps_n0m.tdf     ;         ;
+; db/altsyncram_sfa1.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/altsyncram_sfa1.tdf    ;         ;
+; db/cntr_g5f.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/cntr_g5f.tdf           ;         ;
+; db/cmpr_grb.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/cmpr_grb.tdf           ;         ;
+; db/cntr_6lg.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/cntr_6lg.tdf           ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mult.tdf                                            ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/multcore.inc                                            ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/bypassff.inc                                            ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altshift.inc                                            ;         ;
+; db/mult_mgs.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/mult_mgs.tdf           ;         ;
+; db/mult_4hs.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/mult_4hs.tdf           ;         ;
+; db/mult_ugs.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/mult_ugs.tdf           ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------------------------------+---------+
 
 
 +-------------------------------------------------------------------+
@@ -266,16 +263,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+---------------------+
 ; Resource                                    ; Usage               ;
 +---------------------------------------------+---------------------+
-; Estimated Total logic elements              ; 7,353               ;
+; Estimated Total logic elements              ; 7,351               ;
 ;                                             ;                     ;
-; Total combinational functions               ; 3316                ;
+; Total combinational functions               ; 3314                ;
 ; Logic element usage by number of LUT inputs ;                     ;
-;     -- 4 input functions                    ; 2537                ;
+;     -- 4 input functions                    ; 2536                ;
 ;     -- 3 input functions                    ; 522                 ;
-;     -- <=2 input functions                  ; 257                 ;
+;     -- <=2 input functions                  ; 256                 ;
 ;                                             ;                     ;
 ; Logic elements by mode                      ;                     ;
-;     -- normal mode                          ; 2876                ;
+;     -- normal mode                          ; 2874                ;
 ;     -- arithmetic mode                      ; 440                 ;
 ;                                             ;                     ;
 ; Total registers                             ; 4385                ;
@@ -292,7 +289,7 @@ refer to the applicable agreement for further details.
 ;                                             ;                     ;
 ; Maximum fan-out node                        ; MAX10_CLK1_50~input ;
 ; Maximum fan-out                             ; 4119                ;
-; Total fan-out                               ; 30496               ;
+; Total fan-out                               ; 30490               ;
 ; Average fan-out                             ; 3.82                ;
 +---------------------------------------------+---------------------+
 
@@ -302,7 +299,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------------+--------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                     ; Entity Name        ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------------+--------------------+--------------+
-; |top                                      ; 3316 (2)            ; 4385 (5)                  ; 6480        ; 0          ; 27           ; 1       ; 13        ; 77   ; 0            ; 0          ; |top                                                                                                                    ; top                ; work         ;
+; |top                                      ; 3314 (2)            ; 4385 (5)                  ; 6480        ; 0          ; 27           ; 1       ; 13        ; 77   ; 0            ; 0          ; |top                                                                                                                    ; top                ; work         ;
 ;    |PLL:pll_inst|                         ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top|PLL:pll_inst                                                                                                       ; PLL                ; work         ;
 ;       |altpll:altpll_component|           ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top|PLL:pll_inst|altpll:altpll_component                                                                               ; altpll             ; work         ;
 ;          |PLL_altpll:auto_generated|      ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top|PLL:pll_inst|altpll:altpll_component|PLL_altpll:auto_generated                                                     ; PLL_altpll         ; work         ;
@@ -324,7 +321,7 @@ refer to the applicable agreement for further details.
 ;             |altsyncram_aa61:fifo_ram|    ; 0 (0)               ; 0 (0)                     ; 6144        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top|fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_5ti1:auto_generated|altsyncram_aa61:fifo_ram                         ; altsyncram_aa61    ; work         ;
 ;             |cmpr_5h5:rdempty_eq_comp|    ; 6 (6)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top|fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_5ti1:auto_generated|cmpr_5h5:rdempty_eq_comp                         ; cmpr_5h5           ; work         ;
 ;             |cmpr_5h5:wrfull_eq_comp|     ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top|fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_5ti1:auto_generated|cmpr_5h5:wrfull_eq_comp                          ; cmpr_5h5           ; work         ;
-;    |fir_module:filter_inst|               ; 3097 (2855)         ; 4044 (4044)               ; 0           ; 0          ; 27           ; 1       ; 13        ; 0    ; 0            ; 0          ; |top|fir_module:filter_inst                                                                                             ; fir_module         ; work         ;
+;    |fir_module:filter_inst|               ; 3095 (2853)         ; 4044 (4044)               ; 0           ; 0          ; 27           ; 1       ; 13        ; 0    ; 0            ; 0          ; |top|fir_module:filter_inst                                                                                             ; fir_module         ; work         ;
 ;       |lpm_mult:Mult0|                    ; 30 (0)              ; 0 (0)                     ; 0           ; 0          ; 7            ; 1       ; 3         ; 0    ; 0            ; 0          ; |top|fir_module:filter_inst|lpm_mult:Mult0                                                                              ; lpm_mult           ; work         ;
 ;          |mult_ugs:auto_generated|        ; 30 (30)             ; 0 (0)                     ; 0           ; 0          ; 7            ; 1       ; 3         ; 0    ; 0            ; 0          ; |top|fir_module:filter_inst|lpm_mult:Mult0|mult_ugs:auto_generated                                                      ; mult_ugs           ; work         ;
 ;       |lpm_mult:Mult1|                    ; 24 (0)              ; 0 (0)                     ; 0           ; 0          ; 4            ; 0       ; 2         ; 0    ; 0            ; 0          ; |top|fir_module:filter_inst|lpm_mult:Mult1                                                                              ; lpm_mult           ; work         ;
@@ -379,23 +376,22 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 
 
 Encoding Type:  One-Hot
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |top|fir_module:filter_inst|state                                                                                                                                                                                     ;
-+---------------------------+---------------------------+---------------------------+---------------------------+------------------+--------------+-----------+-------------+-------------+--------------+--------------+---------------+
-; Name                      ; state.CALC_COEFFICIENTS_3 ; state.CALC_COEFFICIENTS_2 ; state.CALC_COEFFICIENTS_1 ; state.CALC_ERROR ; state.SUM_OF ; state.SUM ; state.MULT2 ; state.MULT1 ; state.SHIFT2 ; state.SHIFT1 ; state.INITIAL ;
-+---------------------------+---------------------------+---------------------------+---------------------------+------------------+--------------+-----------+-------------+-------------+--------------+--------------+---------------+
-; state.INITIAL             ; 0                         ; 0                         ; 0                         ; 0                ; 0            ; 0         ; 0           ; 0           ; 0            ; 0            ; 0             ;
-; state.SHIFT1              ; 0                         ; 0                         ; 0                         ; 0                ; 0            ; 0         ; 0           ; 0           ; 0            ; 1            ; 1             ;
-; state.SHIFT2              ; 0                         ; 0                         ; 0                         ; 0                ; 0            ; 0         ; 0           ; 0           ; 1            ; 0            ; 1             ;
-; state.MULT1               ; 0                         ; 0                         ; 0                         ; 0                ; 0            ; 0         ; 0           ; 1           ; 0            ; 0            ; 1             ;
-; state.MULT2               ; 0                         ; 0                         ; 0                         ; 0                ; 0            ; 0         ; 1           ; 0           ; 0            ; 0            ; 1             ;
-; state.SUM                 ; 0                         ; 0                         ; 0                         ; 0                ; 0            ; 1         ; 0           ; 0           ; 0            ; 0            ; 1             ;
-; state.SUM_OF              ; 0                         ; 0                         ; 0                         ; 0                ; 1            ; 0         ; 0           ; 0           ; 0            ; 0            ; 1             ;
-; state.CALC_ERROR          ; 0                         ; 0                         ; 0                         ; 1                ; 0            ; 0         ; 0           ; 0           ; 0            ; 0            ; 1             ;
-; state.CALC_COEFFICIENTS_1 ; 0                         ; 0                         ; 1                         ; 0                ; 0            ; 0         ; 0           ; 0           ; 0            ; 0            ; 1             ;
-; state.CALC_COEFFICIENTS_2 ; 0                         ; 1                         ; 0                         ; 0                ; 0            ; 0         ; 0           ; 0           ; 0            ; 0            ; 1             ;
-; state.CALC_COEFFICIENTS_3 ; 1                         ; 0                         ; 0                         ; 0                ; 0            ; 0         ; 0           ; 0           ; 0            ; 0            ; 1             ;
-+---------------------------+---------------------------+---------------------------+---------------------------+------------------+--------------+-----------+-------------+-------------+--------------+--------------+---------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |top|fir_module:filter_inst|state                                                                                                                                                                      ;
++---------------------------+---------------------------+---------------------------+---------------------------+------------------+-----------+-------------+-------------+--------------+--------------+---------------+
+; Name                      ; state.CALC_COEFFICIENTS_3 ; state.CALC_COEFFICIENTS_2 ; state.CALC_COEFFICIENTS_1 ; state.CALC_ERROR ; state.SUM ; state.MULT2 ; state.MULT1 ; state.SHIFT2 ; state.SHIFT1 ; state.INITIAL ;
++---------------------------+---------------------------+---------------------------+---------------------------+------------------+-----------+-------------+-------------+--------------+--------------+---------------+
+; state.INITIAL             ; 0                         ; 0                         ; 0                         ; 0                ; 0         ; 0           ; 0           ; 0            ; 0            ; 0             ;
+; state.SHIFT1              ; 0                         ; 0                         ; 0                         ; 0                ; 0         ; 0           ; 0           ; 0            ; 1            ; 1             ;
+; state.SHIFT2              ; 0                         ; 0                         ; 0                         ; 0                ; 0         ; 0           ; 0           ; 1            ; 0            ; 1             ;
+; state.MULT1               ; 0                         ; 0                         ; 0                         ; 0                ; 0         ; 0           ; 1           ; 0            ; 0            ; 1             ;
+; state.MULT2               ; 0                         ; 0                         ; 0                         ; 0                ; 0         ; 1           ; 0           ; 0            ; 0            ; 1             ;
+; state.SUM                 ; 0                         ; 0                         ; 0                         ; 0                ; 1         ; 0           ; 0           ; 0            ; 0            ; 1             ;
+; state.CALC_ERROR          ; 0                         ; 0                         ; 0                         ; 1                ; 0         ; 0           ; 0           ; 0            ; 0            ; 1             ;
+; state.CALC_COEFFICIENTS_1 ; 0                         ; 0                         ; 1                         ; 0                ; 0         ; 0           ; 0           ; 0            ; 0            ; 1             ;
+; state.CALC_COEFFICIENTS_2 ; 0                         ; 1                         ; 0                         ; 0                ; 0         ; 0           ; 0           ; 0            ; 0            ; 1             ;
+; state.CALC_COEFFICIENTS_3 ; 1                         ; 0                         ; 0                         ; 0                ; 0         ; 0           ; 0           ; 0            ; 0            ; 1             ;
++---------------------------+---------------------------+---------------------------+---------------------------+------------------+-----------+-------------+-------------+--------------+--------------+---------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -454,11 +450,10 @@ Encoding Type:  One-Hot
 ; i2s_driver:i2s_driver_io|bit_pattern[0]     ; Merged with i2s_driver:i2s_driver_error|bit_pattern[0]  ;
 ; i2s_driver:i2s_driver_io|bit_pattern[1]     ; Merged with i2s_driver:i2s_driver_error|bit_pattern[1]  ;
 ; i2s_driver:i2s_driver_io|out_frame[0..7]    ; Stuck at GND due to stuck port data_in                  ;
-; fir_module:filter_inst|state.SUM_OF         ; Stuck at GND due to stuck port data_in                  ;
 ; fir_module:filter_inst|updater[11..23]      ; Merged with fir_module:filter_inst|updater[10]          ;
 ; fir_module:filter_inst|updater_temp[59..71] ; Merged with fir_module:filter_inst|updater_temp[58]     ;
 ; i2s_clock_gen:clock_gen_inst|SCLK_count[0]  ; Merged with i2s_clock_gen:clock_gen_inst|LRCLK_count[0] ;
-; Total Number of Removed Registers = 54      ;                                                         ;
+; Total Number of Removed Registers = 53      ;                                                         ;
 +---------------------------------------------+---------------------------------------------------------+
 
 
@@ -517,48 +512,48 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
-; 3:1                ; 48 bits   ; 96 LEs        ; 0 LEs                ; 96 LEs                 ; Yes        ; |top|i2s_driver:i2s_driver_io|out_r[9]       ;
-; 5:1                ; 15 bits   ; 45 LEs        ; 15 LEs               ; 30 LEs                 ; Yes        ; |top|i2s_driver:i2s_driver_io|out_frame[7]   ;
-; 5:1                ; 48 bits   ; 144 LEs       ; 48 LEs               ; 96 LEs                 ; Yes        ; |top|i2s_driver:i2s_driver_io|out_frame[52]  ;
-; 5:1                ; 56 bits   ; 168 LEs       ; 56 LEs               ; 112 LEs                ; Yes        ; |top|fir_module:filter_inst|temp_output[10]  ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[31][23]      ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[30][23]      ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[29][23]      ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[28][8]       ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[27][21]      ;
+; 3:1                ; 48 bits   ; 96 LEs        ; 0 LEs                ; 96 LEs                 ; Yes        ; |top|i2s_driver:i2s_driver_io|out_r[23]      ;
+; 5:1                ; 15 bits   ; 45 LEs        ; 15 LEs               ; 30 LEs                 ; Yes        ; |top|i2s_driver:i2s_driver_io|out_frame[4]   ;
+; 5:1                ; 48 bits   ; 144 LEs       ; 48 LEs               ; 96 LEs                 ; Yes        ; |top|i2s_driver:i2s_driver_io|out_frame[31]  ;
+; 5:1                ; 56 bits   ; 168 LEs       ; 56 LEs               ; 112 LEs                ; Yes        ; |top|fir_module:filter_inst|temp_output[49]  ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[31][18]      ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[30][18]      ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[29][16]      ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[28][23]      ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[27][23]      ;
 ; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[26][23]      ;
 ; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[25][23]      ;
 ; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[24][23]      ;
 ; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[23][23]      ;
 ; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[22][23]      ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[21][2]       ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[21][23]      ;
 ; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[20][23]      ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[19][23]      ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[19][16]      ;
 ; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[18][23]      ;
 ; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[17][23]      ;
 ; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[16][23]      ;
 ; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[15][23]      ;
 ; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[14][23]      ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[13][23]      ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[12][8]       ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[11][21]      ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[10][11]      ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[9][5]        ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[8][18]       ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[7][7]        ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[6][23]       ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[5][15]       ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[4][14]       ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[3][12]       ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[2][2]        ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[1][23]       ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[0][17]       ;
-; 6:1                ; 24 bits   ; 96 LEs        ; 24 LEs               ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|updater_temp[53] ;
-; 7:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |top|fir_module:filter_inst|count[29]        ;
-; 32:1               ; 96 bits   ; 2016 LEs      ; 2016 LEs             ; 0 LEs                  ; No         ; |top|fir_module:filter_inst|Mux63            ;
-; 32:1               ; 24 bits   ; 504 LEs       ; 504 LEs              ; 0 LEs                  ; No         ; |top|fir_module:filter_inst|Mux99            ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; No         ; |top|fir_module:filter_inst|Selector8        ;
-; 10:1               ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |top|fir_module:filter_inst|Selector1        ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[13][19]      ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[12][18]      ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[11][16]      ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[10][21]      ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[9][19]       ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[8][5]        ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[7][8]        ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[6][8]        ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[5][8]        ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[4][8]        ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[3][8]        ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[2][19]       ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[1][7]        ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|wts[0][0]        ;
+; 6:1                ; 24 bits   ; 96 LEs        ; 24 LEs               ; 72 LEs                 ; Yes        ; |top|fir_module:filter_inst|updater_temp[52] ;
+; 7:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |top|fir_module:filter_inst|count[1]         ;
+; 32:1               ; 96 bits   ; 2016 LEs      ; 2016 LEs             ; 0 LEs                  ; No         ; |top|fir_module:filter_inst|Mux55            ;
+; 32:1               ; 24 bits   ; 504 LEs       ; 504 LEs              ; 0 LEs                  ; No         ; |top|fir_module:filter_inst|Mux106           ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |top|fir_module:filter_inst|Selector7        ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |top|fir_module:filter_inst|Selector8        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
 
 
@@ -1369,24 +1364,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA CLR SCLR      ; 56                          ;
 ;     plain             ; 8                           ;
 ; cycloneiii_io_obuf    ; 52                          ;
-; cycloneiii_lcell_comb ; 3317                        ;
+; cycloneiii_lcell_comb ; 3315                        ;
 ;     arith             ; 440                         ;
 ;         1 data inputs ; 1                           ;
 ;         2 data inputs ; 181                         ;
 ;         3 data inputs ; 258                         ;
-;     normal            ; 2877                        ;
+;     normal            ; 2875                        ;
 ;         0 data inputs ; 9                           ;
 ;         1 data inputs ; 31                          ;
-;         2 data inputs ; 36                          ;
+;         2 data inputs ; 35                          ;
 ;         3 data inputs ; 264                         ;
-;         4 data inputs ; 2537                        ;
+;         4 data inputs ; 2536                        ;
 ; cycloneiii_mac_mult   ; 14                          ;
 ; cycloneiii_mac_out    ; 14                          ;
 ; cycloneiii_pll        ; 1                           ;
 ; cycloneiii_ram_block  ; 48                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 11.50                       ;
-; Average LUT depth     ; 5.41                        ;
+; Average LUT depth     ; 5.42                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1405,42 +1400,42 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sat Apr 13 14:49:54 2024
+    Info: Processing started: Sun Apr 14 11:43:27 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ANC_SYSTEM -c ANC_SYSTEM
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file top.vhd
-    Info (12022): Found design unit 1: top-behavior File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 26
-    Info (12023): Found entity 1: top File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 6
+    Info (12022): Found design unit 1: top-behavior File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 26
+    Info (12023): Found entity 1: top File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file i2s_driver.vhd
-    Info (12022): Found design unit 1: i2s_driver-Behavioral File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/i2s_driver.vhd Line: 25
-    Info (12023): Found entity 1: i2s_driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/i2s_driver.vhd Line: 5
+    Info (12022): Found design unit 1: i2s_driver-Behavioral File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/i2s_driver.vhd Line: 25
+    Info (12023): Found entity 1: i2s_driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/i2s_driver.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file i2s_clock_gen.vhd
-    Info (12022): Found design unit 1: i2s_clock_gen-behavior File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/i2s_clock_gen.vhd Line: 14
-    Info (12023): Found entity 1: i2s_clock_gen File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/i2s_clock_gen.vhd Line: 5
+    Info (12022): Found design unit 1: i2s_clock_gen-behavior File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/i2s_clock_gen.vhd Line: 14
+    Info (12023): Found entity 1: i2s_clock_gen File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/i2s_clock_gen.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file fir_module.vhd
-    Info (12022): Found design unit 1: fir_module-behavior File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fir_module.vhd Line: 29
-    Info (12023): Found entity 1: fir_module File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fir_module.vhd Line: 6
+    Info (12022): Found design unit 1: fir_module-behavior File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fir_module.vhd Line: 29
+    Info (12023): Found entity 1: fir_module File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fir_module.vhd Line: 6
 Info (12021): Found 2 design units, including 0 entities, in source file anc_package.vhd
-    Info (12022): Found design unit 1: anc_package File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/anc_package.vhd Line: 7
-    Info (12022): Found design unit 2: anc_package-body File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/anc_package.vhd Line: 22
+    Info (12022): Found design unit 1: anc_package File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/anc_package.vhd Line: 7
+    Info (12022): Found design unit 2: anc_package-body File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/anc_package.vhd Line: 22
 Info (12021): Found 2 design units, including 1 entities, in source file pll.vhd
-    Info (12022): Found design unit 1: pll-SYN File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/PLL.vhd Line: 52
-    Info (12023): Found entity 1: PLL File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/PLL.vhd Line: 42
+    Info (12022): Found design unit 1: pll-SYN File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/PLL.vhd Line: 52
+    Info (12023): Found entity 1: PLL File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/PLL.vhd Line: 42
 Info (12021): Found 2 design units, including 1 entities, in source file fifo.vhd
-    Info (12022): Found design unit 1: fifo-SYN File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fifo.vhd Line: 58
-    Info (12023): Found entity 1: fifo File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fifo.vhd Line: 42
+    Info (12022): Found design unit 1: fifo-SYN File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fifo.vhd Line: 58
+    Info (12023): Found entity 1: fifo File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fifo.vhd Line: 42
 Info (12127): Elaborating entity "top" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at top.vhd(136): used implicit default value for signal "in_l_dummy" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 136
-Warning (10541): VHDL Signal Declaration warning at top.vhd(137): used implicit default value for signal "in_r_dummy" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 137
-Warning (10541): VHDL Signal Declaration warning at top.vhd(150): used implicit default value for signal "data_s" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 150
-Warning (10036): Verilog HDL or VHDL warning at top.vhd(153): object "i2s_is_valid" assigned a value but never read File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 153
-Warning (10492): VHDL Process Statement warning at top.vhd(329): signal "rst_n" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 329
-Info (12128): Elaborating entity "i2s_driver" for hierarchy "i2s_driver:i2s_driver_io" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 191
-Info (12128): Elaborating entity "fifo" for hierarchy "fifo:fifo_inst" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 231
-Info (12128): Elaborating entity "dcfifo" for hierarchy "fifo:fifo_inst|dcfifo:dcfifo_component" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fifo.vhd Line: 100
-Info (12130): Elaborated megafunction instantiation "fifo:fifo_inst|dcfifo:dcfifo_component" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fifo.vhd Line: 100
-Info (12133): Instantiated megafunction "fifo:fifo_inst|dcfifo:dcfifo_component" with the following parameter: File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fifo.vhd Line: 100
+Warning (10541): VHDL Signal Declaration warning at top.vhd(136): used implicit default value for signal "in_l_dummy" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 136
+Warning (10541): VHDL Signal Declaration warning at top.vhd(137): used implicit default value for signal "in_r_dummy" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 137
+Warning (10541): VHDL Signal Declaration warning at top.vhd(150): used implicit default value for signal "data_s" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 150
+Warning (10036): Verilog HDL or VHDL warning at top.vhd(153): object "i2s_is_valid" assigned a value but never read File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 153
+Warning (10492): VHDL Process Statement warning at top.vhd(329): signal "rst_n" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 329
+Info (12128): Elaborating entity "i2s_driver" for hierarchy "i2s_driver:i2s_driver_io" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 191
+Info (12128): Elaborating entity "fifo" for hierarchy "fifo:fifo_inst" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 231
+Info (12128): Elaborating entity "dcfifo" for hierarchy "fifo:fifo_inst|dcfifo:dcfifo_component" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fifo.vhd Line: 100
+Info (12130): Elaborated megafunction instantiation "fifo:fifo_inst|dcfifo:dcfifo_component" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fifo.vhd Line: 100
+Info (12133): Instantiated megafunction "fifo:fifo_inst|dcfifo:dcfifo_component" with the following parameter: File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fifo.vhd Line: 100
     Info (12134): Parameter "intended_device_family" = "MAX 10"
     Info (12134): Parameter "lpm_numwords" = "256"
     Info (12134): Parameter "lpm_showahead" = "OFF"
@@ -1455,36 +1450,36 @@ Info (12133): Instantiated megafunction "fifo:fifo_inst|dcfifo:dcfifo_component"
     Info (12134): Parameter "write_aclr_synch" = "OFF"
     Info (12134): Parameter "wrsync_delaypipe" = "4"
 Info (12021): Found 1 design units, including 1 entities, in source file db/dcfifo_5ti1.tdf
-    Info (12023): Found entity 1: dcfifo_5ti1 File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/dcfifo_5ti1.tdf Line: 36
+    Info (12023): Found entity 1: dcfifo_5ti1 File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/dcfifo_5ti1.tdf Line: 36
 Info (12128): Elaborating entity "dcfifo_5ti1" for hierarchy "fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_5ti1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/dcfifo.tdf Line: 190
 Info (12021): Found 1 design units, including 1 entities, in source file db/a_graycounter_jg6.tdf
-    Info (12023): Found entity 1: a_graycounter_jg6 File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/a_graycounter_jg6.tdf Line: 24
-Info (12128): Elaborating entity "a_graycounter_jg6" for hierarchy "fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_5ti1:auto_generated|a_graycounter_jg6:rdptr_g1p" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/dcfifo_5ti1.tdf Line: 49
+    Info (12023): Found entity 1: a_graycounter_jg6 File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/a_graycounter_jg6.tdf Line: 24
+Info (12128): Elaborating entity "a_graycounter_jg6" for hierarchy "fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_5ti1:auto_generated|a_graycounter_jg6:rdptr_g1p" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/dcfifo_5ti1.tdf Line: 49
 Info (12021): Found 1 design units, including 1 entities, in source file db/a_graycounter_fub.tdf
-    Info (12023): Found entity 1: a_graycounter_fub File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/a_graycounter_fub.tdf Line: 24
-Info (12128): Elaborating entity "a_graycounter_fub" for hierarchy "fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_5ti1:auto_generated|a_graycounter_fub:wrptr_g1p" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/dcfifo_5ti1.tdf Line: 50
+    Info (12023): Found entity 1: a_graycounter_fub File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/a_graycounter_fub.tdf Line: 24
+Info (12128): Elaborating entity "a_graycounter_fub" for hierarchy "fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_5ti1:auto_generated|a_graycounter_fub:wrptr_g1p" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/dcfifo_5ti1.tdf Line: 50
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_aa61.tdf
-    Info (12023): Found entity 1: altsyncram_aa61 File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/altsyncram_aa61.tdf Line: 27
-Info (12128): Elaborating entity "altsyncram_aa61" for hierarchy "fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_5ti1:auto_generated|altsyncram_aa61:fifo_ram" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/dcfifo_5ti1.tdf Line: 51
+    Info (12023): Found entity 1: altsyncram_aa61 File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/altsyncram_aa61.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_aa61" for hierarchy "fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_5ti1:auto_generated|altsyncram_aa61:fifo_ram" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/dcfifo_5ti1.tdf Line: 51
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_synch_pipe_0ol.tdf
-    Info (12023): Found entity 1: alt_synch_pipe_0ol File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/alt_synch_pipe_0ol.tdf Line: 26
-Info (12128): Elaborating entity "alt_synch_pipe_0ol" for hierarchy "fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_5ti1:auto_generated|alt_synch_pipe_0ol:rs_dgwp" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/dcfifo_5ti1.tdf Line: 58
+    Info (12023): Found entity 1: alt_synch_pipe_0ol File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/alt_synch_pipe_0ol.tdf Line: 26
+Info (12128): Elaborating entity "alt_synch_pipe_0ol" for hierarchy "fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_5ti1:auto_generated|alt_synch_pipe_0ol:rs_dgwp" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/dcfifo_5ti1.tdf Line: 58
 Info (12021): Found 1 design units, including 1 entities, in source file db/dffpipe_hd9.tdf
-    Info (12023): Found entity 1: dffpipe_hd9 File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/dffpipe_hd9.tdf Line: 24
-Info (12128): Elaborating entity "dffpipe_hd9" for hierarchy "fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_5ti1:auto_generated|alt_synch_pipe_0ol:rs_dgwp|dffpipe_hd9:dffpipe12" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/alt_synch_pipe_0ol.tdf Line: 34
+    Info (12023): Found entity 1: dffpipe_hd9 File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/dffpipe_hd9.tdf Line: 24
+Info (12128): Elaborating entity "dffpipe_hd9" for hierarchy "fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_5ti1:auto_generated|alt_synch_pipe_0ol:rs_dgwp|dffpipe_hd9:dffpipe12" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/alt_synch_pipe_0ol.tdf Line: 34
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_synch_pipe_1ol.tdf
-    Info (12023): Found entity 1: alt_synch_pipe_1ol File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/alt_synch_pipe_1ol.tdf Line: 26
-Info (12128): Elaborating entity "alt_synch_pipe_1ol" for hierarchy "fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_5ti1:auto_generated|alt_synch_pipe_1ol:ws_dgrp" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/dcfifo_5ti1.tdf Line: 59
+    Info (12023): Found entity 1: alt_synch_pipe_1ol File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/alt_synch_pipe_1ol.tdf Line: 26
+Info (12128): Elaborating entity "alt_synch_pipe_1ol" for hierarchy "fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_5ti1:auto_generated|alt_synch_pipe_1ol:ws_dgrp" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/dcfifo_5ti1.tdf Line: 59
 Info (12021): Found 1 design units, including 1 entities, in source file db/dffpipe_id9.tdf
-    Info (12023): Found entity 1: dffpipe_id9 File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/dffpipe_id9.tdf Line: 24
-Info (12128): Elaborating entity "dffpipe_id9" for hierarchy "fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_5ti1:auto_generated|alt_synch_pipe_1ol:ws_dgrp|dffpipe_id9:dffpipe15" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/alt_synch_pipe_1ol.tdf Line: 34
+    Info (12023): Found entity 1: dffpipe_id9 File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/dffpipe_id9.tdf Line: 24
+Info (12128): Elaborating entity "dffpipe_id9" for hierarchy "fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_5ti1:auto_generated|alt_synch_pipe_1ol:ws_dgrp|dffpipe_id9:dffpipe15" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/alt_synch_pipe_1ol.tdf Line: 34
 Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_5h5.tdf
-    Info (12023): Found entity 1: cmpr_5h5 File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/cmpr_5h5.tdf Line: 22
-Info (12128): Elaborating entity "cmpr_5h5" for hierarchy "fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_5ti1:auto_generated|cmpr_5h5:rdempty_eq_comp" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/dcfifo_5ti1.tdf Line: 60
-Info (12128): Elaborating entity "PLL" for hierarchy "PLL:pll_inst" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 244
-Info (12128): Elaborating entity "altpll" for hierarchy "PLL:pll_inst|altpll:altpll_component" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/PLL.vhd Line: 135
-Info (12130): Elaborated megafunction instantiation "PLL:pll_inst|altpll:altpll_component" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/PLL.vhd Line: 135
-Info (12133): Instantiated megafunction "PLL:pll_inst|altpll:altpll_component" with the following parameter: File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/PLL.vhd Line: 135
+    Info (12023): Found entity 1: cmpr_5h5 File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/cmpr_5h5.tdf Line: 22
+Info (12128): Elaborating entity "cmpr_5h5" for hierarchy "fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_5ti1:auto_generated|cmpr_5h5:rdempty_eq_comp" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/dcfifo_5ti1.tdf Line: 60
+Info (12128): Elaborating entity "PLL" for hierarchy "PLL:pll_inst" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 244
+Info (12128): Elaborating entity "altpll" for hierarchy "PLL:pll_inst|altpll:altpll_component" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/PLL.vhd Line: 135
+Info (12130): Elaborated megafunction instantiation "PLL:pll_inst|altpll:altpll_component" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/PLL.vhd Line: 135
+Info (12133): Instantiated megafunction "PLL:pll_inst|altpll:altpll_component" with the following parameter: File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/PLL.vhd Line: 135
     Info (12134): Parameter "bandwidth_type" = "AUTO"
     Info (12134): Parameter "clk0_divide_by" = "625"
     Info (12134): Parameter "clk0_duty_cycle" = "50"
@@ -1540,21 +1535,21 @@ Info (12133): Instantiated megafunction "PLL:pll_inst|altpll:altpll_component" w
     Info (12134): Parameter "port_extclk3" = "PORT_UNUSED"
     Info (12134): Parameter "width_clock" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/pll_altpll.v
-    Info (12023): Found entity 1: PLL_altpll File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/pll_altpll.v Line: 29
+    Info (12023): Found entity 1: PLL_altpll File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/pll_altpll.v Line: 29
 Info (12128): Elaborating entity "PLL_altpll" for hierarchy "PLL:pll_inst|altpll:altpll_component|PLL_altpll:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altpll.tdf Line: 897
-Info (12128): Elaborating entity "i2s_clock_gen" for hierarchy "i2s_clock_gen:clock_gen_inst" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 251
-Info (12128): Elaborating entity "fir_module" for hierarchy "fir_module:filter_inst" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 258
-Warning (10541): VHDL Signal Declaration warning at fir_module.vhd(15): used implicit default value for signal "s1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fir_module.vhd Line: 15
-Warning (10541): VHDL Signal Declaration warning at fir_module.vhd(16): used implicit default value for signal "s2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fir_module.vhd Line: 16
-Warning (10541): VHDL Signal Declaration warning at fir_module.vhd(17): used implicit default value for signal "s3" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fir_module.vhd Line: 17
-Warning (10541): VHDL Signal Declaration warning at fir_module.vhd(18): used implicit default value for signal "s4" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fir_module.vhd Line: 18
-Warning (10541): VHDL Signal Declaration warning at fir_module.vhd(19): used implicit default value for signal "s5" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fir_module.vhd Line: 19
-Warning (10541): VHDL Signal Declaration warning at fir_module.vhd(20): used implicit default value for signal "s6" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fir_module.vhd Line: 20
-Warning (10541): VHDL Signal Declaration warning at fir_module.vhd(21): used implicit default value for signal "s7" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fir_module.vhd Line: 21
-Warning (10541): VHDL Signal Declaration warning at fir_module.vhd(22): used implicit default value for signal "s8" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fir_module.vhd Line: 22
-Warning (10541): VHDL Signal Declaration warning at fir_module.vhd(23): used implicit default value for signal "s9" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fir_module.vhd Line: 23
-Warning (10541): VHDL Signal Declaration warning at fir_module.vhd(24): used implicit default value for signal "s10" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fir_module.vhd Line: 24
-Warning (10492): VHDL Process Statement warning at fir_module.vhd(58): signal "rst_low" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fir_module.vhd Line: 58
+Info (12128): Elaborating entity "i2s_clock_gen" for hierarchy "i2s_clock_gen:clock_gen_inst" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 251
+Info (12128): Elaborating entity "fir_module" for hierarchy "fir_module:filter_inst" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 258
+Warning (10541): VHDL Signal Declaration warning at fir_module.vhd(15): used implicit default value for signal "s1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fir_module.vhd Line: 15
+Warning (10541): VHDL Signal Declaration warning at fir_module.vhd(16): used implicit default value for signal "s2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fir_module.vhd Line: 16
+Warning (10541): VHDL Signal Declaration warning at fir_module.vhd(17): used implicit default value for signal "s3" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fir_module.vhd Line: 17
+Warning (10541): VHDL Signal Declaration warning at fir_module.vhd(18): used implicit default value for signal "s4" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fir_module.vhd Line: 18
+Warning (10541): VHDL Signal Declaration warning at fir_module.vhd(19): used implicit default value for signal "s5" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fir_module.vhd Line: 19
+Warning (10541): VHDL Signal Declaration warning at fir_module.vhd(20): used implicit default value for signal "s6" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fir_module.vhd Line: 20
+Warning (10541): VHDL Signal Declaration warning at fir_module.vhd(21): used implicit default value for signal "s7" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fir_module.vhd Line: 21
+Warning (10541): VHDL Signal Declaration warning at fir_module.vhd(22): used implicit default value for signal "s8" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fir_module.vhd Line: 22
+Warning (10541): VHDL Signal Declaration warning at fir_module.vhd(23): used implicit default value for signal "s9" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fir_module.vhd Line: 23
+Warning (10541): VHDL Signal Declaration warning at fir_module.vhd(24): used implicit default value for signal "s10" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fir_module.vhd Line: 24
+Warning (10492): VHDL Process Statement warning at fir_module.vhd(58): signal "rst_low" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fir_module.vhd Line: 58
 Info (13014): Ignored 1 buffer(s)
     Info (13019): Ignored 1 SOFT buffer(s)
 Info (19000): Inferred 1 megafunctions from design logic
@@ -1563,27 +1558,27 @@ Info (19000): Inferred 1 megafunctions from design logic
         Info (286033): Parameter TAP_DISTANCE set to 16
         Info (286033): Parameter WIDTH set to 24
 Info (278001): Inferred 4 megafunctions from design logic
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fir_module:filter_inst|Mult1" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fir_module.vhd Line: 139
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fir_module:filter_inst|Mult3" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fir_module.vhd Line: 155
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fir_module:filter_inst|Mult2" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fir_module.vhd Line: 139
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fir_module:filter_inst|Mult0" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fir_module.vhd Line: 86
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fir_module:filter_inst|Mult1" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fir_module.vhd Line: 119
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fir_module:filter_inst|Mult3" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fir_module.vhd Line: 135
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fir_module:filter_inst|Mult2" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fir_module.vhd Line: 119
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fir_module:filter_inst|Mult0" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fir_module.vhd Line: 86
 Info (12130): Elaborated megafunction instantiation "altshift_taps:shift_reg_rtl_0"
 Info (12133): Instantiated megafunction "altshift_taps:shift_reg_rtl_0" with the following parameter:
     Info (12134): Parameter "NUMBER_OF_TAPS" = "1"
     Info (12134): Parameter "TAP_DISTANCE" = "16"
     Info (12134): Parameter "WIDTH" = "24"
 Info (12021): Found 1 design units, including 1 entities, in source file db/shift_taps_n0m.tdf
-    Info (12023): Found entity 1: shift_taps_n0m File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/shift_taps_n0m.tdf Line: 28
+    Info (12023): Found entity 1: shift_taps_n0m File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/shift_taps_n0m.tdf Line: 28
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_sfa1.tdf
-    Info (12023): Found entity 1: altsyncram_sfa1 File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/altsyncram_sfa1.tdf Line: 27
+    Info (12023): Found entity 1: altsyncram_sfa1 File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/altsyncram_sfa1.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_g5f.tdf
-    Info (12023): Found entity 1: cntr_g5f File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/cntr_g5f.tdf Line: 27
+    Info (12023): Found entity 1: cntr_g5f File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/cntr_g5f.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_grb.tdf
-    Info (12023): Found entity 1: cmpr_grb File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/cmpr_grb.tdf Line: 22
+    Info (12023): Found entity 1: cmpr_grb File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/cmpr_grb.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_6lg.tdf
-    Info (12023): Found entity 1: cntr_6lg File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/cntr_6lg.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "fir_module:filter_inst|lpm_mult:Mult1" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fir_module.vhd Line: 139
-Info (12133): Instantiated megafunction "fir_module:filter_inst|lpm_mult:Mult1" with the following parameter: File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fir_module.vhd Line: 139
+    Info (12023): Found entity 1: cntr_6lg File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/cntr_6lg.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "fir_module:filter_inst|lpm_mult:Mult1" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fir_module.vhd Line: 119
+Info (12133): Instantiated megafunction "fir_module:filter_inst|lpm_mult:Mult1" with the following parameter: File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fir_module.vhd Line: 119
     Info (12134): Parameter "LPM_WIDTHA" = "11"
     Info (12134): Parameter "LPM_WIDTHB" = "24"
     Info (12134): Parameter "LPM_WIDTHP" = "35"
@@ -1594,9 +1589,9 @@ Info (12133): Instantiated megafunction "fir_module:filter_inst|lpm_mult:Mult1" 
     Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
     Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/mult_mgs.tdf
-    Info (12023): Found entity 1: mult_mgs File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/mult_mgs.tdf Line: 30
-Info (12130): Elaborated megafunction instantiation "fir_module:filter_inst|lpm_mult:Mult3" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fir_module.vhd Line: 155
-Info (12133): Instantiated megafunction "fir_module:filter_inst|lpm_mult:Mult3" with the following parameter: File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fir_module.vhd Line: 155
+    Info (12023): Found entity 1: mult_mgs File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/mult_mgs.tdf Line: 30
+Info (12130): Elaborated megafunction instantiation "fir_module:filter_inst|lpm_mult:Mult3" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fir_module.vhd Line: 135
+Info (12133): Instantiated megafunction "fir_module:filter_inst|lpm_mult:Mult3" with the following parameter: File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fir_module.vhd Line: 135
     Info (12134): Parameter "LPM_WIDTHA" = "35"
     Info (12134): Parameter "LPM_WIDTHB" = "24"
     Info (12134): Parameter "LPM_WIDTHP" = "59"
@@ -1607,9 +1602,9 @@ Info (12133): Instantiated megafunction "fir_module:filter_inst|lpm_mult:Mult3" 
     Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
     Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/mult_4hs.tdf
-    Info (12023): Found entity 1: mult_4hs File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/mult_4hs.tdf Line: 30
-Info (12130): Elaborated megafunction instantiation "fir_module:filter_inst|lpm_mult:Mult0" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fir_module.vhd Line: 86
-Info (12133): Instantiated megafunction "fir_module:filter_inst|lpm_mult:Mult0" with the following parameter: File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/fir_module.vhd Line: 86
+    Info (12023): Found entity 1: mult_4hs File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/mult_4hs.tdf Line: 30
+Info (12130): Elaborated megafunction instantiation "fir_module:filter_inst|lpm_mult:Mult0" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fir_module.vhd Line: 86
+Info (12133): Instantiated megafunction "fir_module:filter_inst|lpm_mult:Mult0" with the following parameter: File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/fir_module.vhd Line: 86
     Info (12134): Parameter "LPM_WIDTHA" = "24"
     Info (12134): Parameter "LPM_WIDTHB" = "24"
     Info (12134): Parameter "LPM_WIDTHP" = "48"
@@ -1620,107 +1615,107 @@ Info (12133): Instantiated megafunction "fir_module:filter_inst|lpm_mult:Mult0" 
     Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
     Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/mult_ugs.tdf
-    Info (12023): Found entity 1: mult_ugs File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/mult_ugs.tdf Line: 30
+    Info (12023): Found entity 1: mult_ugs File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/mult_ugs.tdf Line: 30
 Info (13014): Ignored 631 buffer(s)
     Info (13019): Ignored 631 SOFT buffer(s)
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[0]" and its non-tri-state driver. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[1]" and its non-tri-state driver. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[2]" and its non-tri-state driver. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[3]" and its non-tri-state driver. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[6]" and its non-tri-state driver. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[7]" and its non-tri-state driver. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[8]" and its non-tri-state driver. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[10]" and its non-tri-state driver. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[11]" and its non-tri-state driver. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[12]" and its non-tri-state driver. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[0]" and its non-tri-state driver. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[1]" and its non-tri-state driver. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[2]" and its non-tri-state driver. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[3]" and its non-tri-state driver. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[6]" and its non-tri-state driver. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[7]" and its non-tri-state driver. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[8]" and its non-tri-state driver. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[10]" and its non-tri-state driver. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[11]" and its non-tri-state driver. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[12]" and its non-tri-state driver. File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
 Warning (13039): The following bidirectional pins have no drivers
-    Warning (13040): bidirectional pin "GPIO[9]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13040): bidirectional pin "GPIO[13]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13040): bidirectional pin "ARDUINO_IO[0]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 18
-    Warning (13040): bidirectional pin "ARDUINO_IO[1]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 18
-    Warning (13040): bidirectional pin "ARDUINO_IO[2]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 18
-    Warning (13040): bidirectional pin "ARDUINO_IO[3]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 18
-    Warning (13040): bidirectional pin "ARDUINO_IO[4]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 18
-    Warning (13040): bidirectional pin "ARDUINO_IO[5]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 18
-    Warning (13040): bidirectional pin "ARDUINO_IO[6]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 18
-    Warning (13040): bidirectional pin "ARDUINO_IO[7]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 18
-    Warning (13040): bidirectional pin "ARDUINO_IO[8]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 18
-    Warning (13040): bidirectional pin "ARDUINO_IO[9]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 18
-    Warning (13040): bidirectional pin "ARDUINO_IO[10]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 18
-    Warning (13040): bidirectional pin "ARDUINO_IO[11]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 18
-    Warning (13040): bidirectional pin "ARDUINO_IO[12]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 18
-    Warning (13040): bidirectional pin "ARDUINO_IO[13]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 18
-    Warning (13040): bidirectional pin "ARDUINO_IO[14]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 18
-    Warning (13040): bidirectional pin "ARDUINO_IO[15]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 18
-    Warning (13040): bidirectional pin "GPIO[4]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13040): bidirectional pin "GPIO[5]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13040): bidirectional pin "GPIO[14]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13040): bidirectional pin "GPIO[15]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13040): bidirectional pin "GPIO[17]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13040): bidirectional pin "GPIO[18]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13040): bidirectional pin "GPIO[19]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13040): bidirectional pin "GPIO[20]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13040): bidirectional pin "GPIO[21]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13040): bidirectional pin "GPIO[22]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13040): bidirectional pin "GPIO[23]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13040): bidirectional pin "GPIO[24]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13040): bidirectional pin "GPIO[25]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13040): bidirectional pin "GPIO[26]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13040): bidirectional pin "GPIO[27]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13040): bidirectional pin "GPIO[28]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13040): bidirectional pin "GPIO[29]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13040): bidirectional pin "GPIO[30]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13040): bidirectional pin "GPIO[31]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13040): bidirectional pin "GPIO[32]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13040): bidirectional pin "GPIO[33]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13040): bidirectional pin "GPIO[34]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13040): bidirectional pin "GPIO[35]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
+    Warning (13040): bidirectional pin "GPIO[9]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13040): bidirectional pin "GPIO[13]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13040): bidirectional pin "ARDUINO_IO[0]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 18
+    Warning (13040): bidirectional pin "ARDUINO_IO[1]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 18
+    Warning (13040): bidirectional pin "ARDUINO_IO[2]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 18
+    Warning (13040): bidirectional pin "ARDUINO_IO[3]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 18
+    Warning (13040): bidirectional pin "ARDUINO_IO[4]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 18
+    Warning (13040): bidirectional pin "ARDUINO_IO[5]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 18
+    Warning (13040): bidirectional pin "ARDUINO_IO[6]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 18
+    Warning (13040): bidirectional pin "ARDUINO_IO[7]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 18
+    Warning (13040): bidirectional pin "ARDUINO_IO[8]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 18
+    Warning (13040): bidirectional pin "ARDUINO_IO[9]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 18
+    Warning (13040): bidirectional pin "ARDUINO_IO[10]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 18
+    Warning (13040): bidirectional pin "ARDUINO_IO[11]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 18
+    Warning (13040): bidirectional pin "ARDUINO_IO[12]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 18
+    Warning (13040): bidirectional pin "ARDUINO_IO[13]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 18
+    Warning (13040): bidirectional pin "ARDUINO_IO[14]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 18
+    Warning (13040): bidirectional pin "ARDUINO_IO[15]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 18
+    Warning (13040): bidirectional pin "GPIO[4]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13040): bidirectional pin "GPIO[5]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13040): bidirectional pin "GPIO[14]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13040): bidirectional pin "GPIO[15]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13040): bidirectional pin "GPIO[17]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13040): bidirectional pin "GPIO[18]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13040): bidirectional pin "GPIO[19]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13040): bidirectional pin "GPIO[20]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13040): bidirectional pin "GPIO[21]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13040): bidirectional pin "GPIO[22]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13040): bidirectional pin "GPIO[23]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13040): bidirectional pin "GPIO[24]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13040): bidirectional pin "GPIO[25]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13040): bidirectional pin "GPIO[26]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13040): bidirectional pin "GPIO[27]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13040): bidirectional pin "GPIO[28]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13040): bidirectional pin "GPIO[29]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13040): bidirectional pin "GPIO[30]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13040): bidirectional pin "GPIO[31]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13040): bidirectional pin "GPIO[32]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13040): bidirectional pin "GPIO[33]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13040): bidirectional pin "GPIO[34]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13040): bidirectional pin "GPIO[35]" has no driver File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
 Warning (13032): The following tri-state nodes are fed by constants
-    Warning (13033): The pin "GPIO[16]" is fed by GND File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-Info (13000): Registers with preset signals will power-up high File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/db/shift_taps_n0m.tdf Line: 38
+    Warning (13033): The pin "GPIO[16]" is fed by GND File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+Info (13000): Registers with preset signals will power-up high File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/db/shift_taps_n0m.tdf Line: 38
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13009): TRI or OPNDRN buffers permanently enabled
-    Warning (13010): Node "GPIO[0]~synth" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13010): Node "GPIO[1]~synth" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13010): Node "GPIO[2]~synth" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13010): Node "GPIO[3]~synth" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13010): Node "GPIO[6]~synth" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13010): Node "GPIO[7]~synth" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13010): Node "GPIO[8]~synth" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13010): Node "GPIO[10]~synth" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13010): Node "GPIO[11]~synth" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
-    Warning (13010): Node "GPIO[12]~synth" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 19
+    Warning (13010): Node "GPIO[0]~synth" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13010): Node "GPIO[1]~synth" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13010): Node "GPIO[2]~synth" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13010): Node "GPIO[3]~synth" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13010): Node "GPIO[6]~synth" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13010): Node "GPIO[7]~synth" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13010): Node "GPIO[8]~synth" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13010): Node "GPIO[10]~synth" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13010): Node "GPIO[11]~synth" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
+    Warning (13010): Node "GPIO[12]~synth" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 19
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[0]" is stuck at GND File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 17
-    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 17
-    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 17
-    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 17
-    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 17
-    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 17
-    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 17
-    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 17
-    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 17
-    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 17
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 17
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 17
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 17
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 17
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 17
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 17
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 17
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 17
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 17
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 17
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 3 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "MAX10_CLK2_50" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 10
-    Warning (15610): No output dependent on input pin "ADC_CLK_10" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 11
-    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_SYSTEM_V2/top.vhd Line: 13
-Info (21057): Implemented 7533 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "MAX10_CLK2_50" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 10
+    Warning (15610): No output dependent on input pin "ADC_CLK_10" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 11
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/logan/OneDrive/Documents/School/Senior Design/ANC_System/HDL/ANC_SYSTEM_SIN/top.vhd Line: 13
+Info (21057): Implemented 7531 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 10 output pins
     Info (21060): Implemented 52 bidirectional pins
-    Info (21061): Implemented 7380 logic cells
+    Info (21061): Implemented 7378 logic cells
     Info (21064): Implemented 48 RAM segments
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 27 DSP elements
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 98 warnings
-    Info: Peak virtual memory: 4927 megabytes
-    Info: Processing ended: Sat Apr 13 14:50:11 2024
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:17
+    Info: Peak virtual memory: 4933 megabytes
+    Info: Processing ended: Sun Apr 14 11:43:48 2024
+    Info: Elapsed time: 00:00:21
+    Info: Total CPU time (on all processors): 00:00:16
 
 
